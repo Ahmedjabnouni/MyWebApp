@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function openInEditor(svgCard) {
     const svgData = svgCard.querySelector('.svg-container').innerHTML;
     localStorage.setItem('currentSVG', svgData); // Store SVG data in local storage
-    window.location.href = '/editor/editor-index.html'; // Navigate to the editor page
+    window.location.href = 'editor-index.html'; // Navigate to the editor page
 }
 
 
