@@ -341,7 +341,7 @@ function adjustSVGSize() {
     }
 
     // Set the viewBox to the original size (update this as per your specific SVG content)
-    svgElement.setAttribute('viewBox', '0 0 865.76 682.89');
+    svgElement.setAttribute('viewBox', '0 0 500 500');
 
     // Ensure the preserveAspectRatio is set to default or as needed
     svgElement.setAttribute('preserveAspectRatio', 'xMidYMid meet');
