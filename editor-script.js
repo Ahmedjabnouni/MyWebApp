@@ -391,3 +391,28 @@ adjustSVGSize();
 //         svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
 //     });
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const svgCanvas = document.getElementById('svgCanvas');
+    if (svgCanvas) {
+        const elements = svgCanvas.querySelectorAll('path, rect, circle, ellipse, polygon, polyline');
+
+        elements.forEach(element => {
+            let opacity = element.style.opacity || window.getComputedStyle(element).getPropertyValue('opacity');
+            if (opacity < 1) {  // Adjust this threshold as needed , its set on 0 opacity ya3ni kan fama ay opacity cursor yetjehlha
+                element.style.pointerEvents = 'none';
+            }
+        });
+    }
+});
