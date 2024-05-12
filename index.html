@@ -14,12 +14,15 @@
         stroke: var(--main-svg-color);
     }
     .card {
-        margin: 10px;
+        /* margin: 10px; */
         border: 1px solid #ccc;
         padding: 10px;
         text-align: center;
     }
 
+    .card-title, .card-text {
+    display: none;  /* This hides the title and text */
+}
 
 
 
@@ -61,7 +64,8 @@
 
 
         .card {
-        height: 400px; /* Fixed height for all cards */
+        height: 300px !important ; 
+        width: 300px !important ; 
         display: flex;
         flex-direction: column;
     }
@@ -109,6 +113,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between; /* Distributes space between title and text */
+        padding: 0px !important;
     }
     .card-title {
         margin-bottom: 0.5rem;
