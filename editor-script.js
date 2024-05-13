@@ -178,23 +178,30 @@ function extractColors() {
 }
 
 // Function to start the filling animation for an SVG element
+// Function to start the filling animation for an SVG element
 function startFillAnimation(event, element, color) {
     const bounds = element.getBBox();
-    const centerX = bounds.x + bounds.width / 2;
-    const centerY = bounds.y + bounds.height / 2;
+    const svg = element.ownerSVGElement;
+
+    // Get the mouse click position relative to the SVG element
+    const point = svg.createSVGPoint();
+    point.x = event.clientX;
+    point.y = event.clientY;
+    const transformedPoint = point.matrixTransform(svg.getScreenCTM().inverse());
+
     const clipPathId = 'clipPath-' + element.tagName + '-' + Math.random().toString(36).substr(2, 9);
     let clipPath = document.createElementNS("http://www.w3.org/2000/svg", "clipPath");
     clipPath.setAttribute('id', clipPathId);
     const clipCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    clipCircle.setAttribute('cx', centerX);
-    clipCircle.setAttribute('cy', centerY);
+    clipCircle.setAttribute('cx', transformedPoint.x);
+    clipCircle.setAttribute('cy', transformedPoint.y);
     clipCircle.setAttribute('r', 0);
     clipPath.appendChild(clipCircle);
     element.ownerSVGElement.appendChild(clipPath);
     element.style.clipPath = `url(#${clipPathId})`;
     element.style.fill = color;
     const maxRadius = Math.sqrt(bounds.width ** 2 + bounds.height ** 2);
-    animateCircle(clipCircle, centerX, centerY, maxRadius, () => {
+    animateCircle(clipCircle, transformedPoint.x, transformedPoint.y, maxRadius, () => {
         element.style.clipPath = ''; // Remove the clipPath after animation
         element.removeAttribute('clip-path'); // Ensure clip-path is removed
     });
@@ -206,7 +213,7 @@ function startFillAnimation(event, element, color) {
 function animateCircle(circle, cx, cy, maxRadius, callback) {
     let radius = 0;
     const interval = setInterval(() => {
-        radius += 10;
+        radius += 3;
         circle.setAttribute('cx', cx);
         circle.setAttribute('cy', cy);
         circle.setAttribute('r', radius);
