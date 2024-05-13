@@ -1,65 +1,69 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="editor-style.css">
-
-    <title>Interactive SVG Editor</title>
-    
+    <title>Responsive SVG Editor</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Styles are linked externally via a URL to Google Fonts -->
 </head>
 <body>
 
-    
 
 
-    <div class="container">
-        <!-- Main container for the SVG editor, centers content and adds shadow -->
-        <div class="svg-canvas">
-            <!-- Container specifically for the SVG canvas -->
-            <svg id="svgCanvas" width="800" height="600"></svg>
-            <!-- SVG element where graphics are displayed and manipulated -->
-            <div class="upload-svg">
-                <!-- Upload area for SVG files -->
-                <input type="file" id="svgFile" accept=".svg">
-                <button id="uploadButton">Upload SVG</button>
-                <!-- Button to trigger the upload of SVG files -->
-            </div>
-        </div>
-        <div class="controls">
-            <!-- Container for controls related to color picking and image uploading -->
-            <div class="color-picker">
-                <!-- Color picker input to select colors -->
-                <input type="color" id="colorPicker" value="#ff0000">
-                <button onclick="addColor()">Add Color</button>
-                <!-- Button to add the selected color to the palette -->
-            </div>
-            <div class="palette" id="palette"></div>
-            <!-- Container for displaying selected colors -->
-            <h2>Upload an image to extract colors</h2>
-            <!-- Heading for image upload section -->
-            <div class="image-upload">
-                <!-- Image upload area for color extraction -->
-                <label for="imageFile" class="file-upload-button">Upload Image</label>
-                <input type="file" id="imageFile" accept="image/*" style="display: none;">
-                <button onclick="extractColors()">Extract Colors</button>
-                <!-- Button to trigger color extraction from uploaded image -->
-                <div id="imageContainer">
-                    <img id="uploadedImage" style="display:none; max-width:100%; max-height:100%;" />
-                    <!-- Hidden image element that displays the uploaded image -->
+
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="svg-canvas">
+                    <svg id="svgCanvas" width="100%" viewBox="0 0 800 600"></svg>
                 </div>
             </div>
-            <button id="downloadSvgButton">Download SVG</button>
-            <button id="downloadPngButton">Download as PNG</button>
-
-            <div class="extracted-colors" id="extractedPalette"></div>
-            <!-- Container for displaying extracted colors -->
+            <div class="col-md-4">
+                <div class="controls">
+                    <div class="upload-svg mb-3">
+                        <input type="file" id="svgFile" accept=".svg" class="form-control-file">
+                      
+                    </div>
+                    <div class="color-picker">
+                        <input type="color" id="colorPicker" value="#ff0000" class="form-control">
+                        <input type="text" id="hexColorInput" placeholder="#ffffff" class="form-control" style="width: 100px; margin-left: 10px;">
+                        <button onclick="addColor()" class="btn btn-secondary" style="margin-left: 10px;">Add Color</button>
+                    </div>
+                    
+                    <div class="palette" id="palette" style="
+                    align-content: center;
+                    display: flex;
+                    justify-content: center;
+                ">
+                                        <span id="palette-placeholder" style="color: grey; display: block;">Your color plate here</span>
+                                       
+                                    </div>
+                    <h2 style="margin-top: 40px !important;">Upload an image to extract colors</h2>
+                    <div class="image-upload mb-3">
+                        <div class="upload-controls">
+                            <label for="imageFile" class="file-upload-button btn btn-info">Upload Image</label>
+                            <input type="file" id="imageFile" accept="image/*" style="display: none;">
+                        </div>
+                        <div id="imageContainer" class="image-preview">
+                            <img id="uploadedImage" alt="Uploaded Image Preview" style="display:none; max-width:100%; max-height:100%;">
+                        </div>
+                    </div>
+                    
+                    <button id="downloadSvgButton" class="btn btn-outline-dark">Download SVG</button>
+                    <button id="downloadPngButton" class="btn btn-outline-dark">Download as PNG</button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="editor-script.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
-    <!-- External script for color extraction functionality -->
 </body>
 </html>
