@@ -22,17 +22,12 @@ function updateHistory() {
 function initSVGInteractions(svgElement) {
     const fillableShapes = svgElement.querySelectorAll('path, rect, circle, ellipse, polygon, polyline');
     fillableShapes.forEach(shape => {
-        shape.setAttribute('data-clicked', 'false');
         shape.addEventListener('click', function(event) {
-            if (shape.getAttribute('data-clicked') === 'false') {
-                startFillAnimation(event, shape, currentColor);
-                shape.setAttribute('data-clicked', 'true');
-            } else {
-                startDissolveAnimation(shape, currentColor);
-            }
+            startFillAnimation(event, shape, currentColor);
             updateHistory(); // Update history whenever a shape is clicked
         });
-       // Ignore pointer events for elements with opacity less than 1
+
+        // Ignore pointer events for elements with opacity less than 1
         let opacity = shape.style.opacity || window.getComputedStyle(shape).getPropertyValue('opacity');
         if (opacity < 1) {
             shape.style.pointerEvents = 'none';
@@ -227,6 +222,12 @@ function animateCircle(circle, cx, cy, maxRadius, callback) {
             updateHistory(); // Consider when and how often to update history
         }
     }, 10);
+}
+
+// Function to start the dissolve animation for an SVG element
+function startDissolveAnimation(element, color) {
+    element.style.transition = 'fill 1s ease';
+    element.style.fill = color;
 }
 
 // Function to adjust SVG size to match the canvas
