@@ -1,3 +1,80 @@
+let defaultColor = '#ff0000'; // Default color set to red
+let currentColor = defaultColor; // Initialize current color with default
+
+function initSVGInteractions(svgElement) {
+    const fillableShapes = svgElement.querySelectorAll('path, rect, circle, ellipse, polygon, polyline');
+    fillableShapes.forEach(shape => {
+        shape.setAttribute('data-clicked', 'false');
+        shape.addEventListener('click', function(event) {
+            if (shape.getAttribute('data-clicked') === 'false') {
+                startFillAnimation(event, shape, currentColor);
+                shape.setAttribute('data-clicked', 'true');
+            } else {
+                startDissolveAnimation(shape, currentColor);
+            }
+        });
+    });
+}
+
+document.getElementById('colorPicker').addEventListener('change', function() {
+    const colorValue = this.value;
+    console.log("Color picker changed to: ", colorValue);
+    currentColor = colorValue;
+});
+
+function addColor(color) {
+    if (!color.startsWith('#')) {
+        color = '#' + color;
+    }
+
+    if (!color.match(/^#[0-9A-Fa-f]{6}$/)) {
+        console.error("Invalid or empty hex code:", color);
+        return; // Stop adding if the color is invalid
+    }
+
+    const now = Date.now();
+    if (now - lastInvocationTime < debounceInterval) {
+        return; // Prevents rapid successive calls
+    }
+    lastInvocationTime = now;
+
+    const palette = document.getElementById('palette');
+    const newSwatch = document.createElement('div');
+    newSwatch.className = 'color-swatch';
+    newSwatch.style.backgroundColor = color;
+    newSwatch.onclick = function() {
+        document.querySelectorAll('.color-swatch').forEach(swatch => {
+            swatch.style.border = 'none';
+        });
+        this.style.border = '1px solid black';
+        currentColor = color;
+    };
+
+    const placeholder = document.getElementById('palette-placeholder');
+    if (placeholder) {
+        placeholder.style.display = 'none';
+    }
+
+    palette.appendChild(newSwatch);
+    console.log("Color added:", color);
+    updateHistory();
+
+    // Clear the hex input field after adding the color
+    document.getElementById('hexColorInput').value = '';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Error handling for global script errors
 window.addEventListener('error', function(event) {
     console.error('Error occurred:', event.message);
@@ -156,6 +233,9 @@ function addColor(color) {
     // Clear the hex input field after adding the color
     document.getElementById('hexColorInput').value = '';
 }
+
+
+
 
 document.getElementById('colorPicker').addEventListener('change', function() {
     const colorValue = this.value;
