@@ -23,9 +23,8 @@ function updateHistory() {
 let initialState;
 
 // SVG file upload handling
-document.getElementById('uploadButton').addEventListener('click', function() {
-    const fileInput = document.getElementById('svgFile');
-    const file = fileInput.files[0];
+document.getElementById('svgFile').addEventListener('change', function() {
+    const file = this.files[0];
     if (file && file.type === "image/svg+xml") {
         const reader = new FileReader();
         reader.onload = function(e) {
@@ -40,6 +39,7 @@ document.getElementById('uploadButton').addEventListener('click', function() {
         alert('Please upload a valid SVG file.');
     }
 });
+
 
 // Undo functionality
 function undo() {
@@ -77,12 +77,14 @@ document.getElementById('imageFile').addEventListener('change', function(event) 
     reader.onload = function(e) {
         const imgElement = document.getElementById('uploadedImage');
         imgElement.src = e.target.result;
+        imgElement.onload = function() {
+            extractColors(); // Automatically extract colors after the image loads
+        }
         imgElement.style.display = 'block'; // Show the image
     };
     reader.readAsDataURL(file);
 });
 
-// Extract dominant colors from an image
 function extractColors() {
     const img = document.getElementById('uploadedImage');
     const colorThief = new ColorThief();
@@ -105,12 +107,28 @@ function extractColors() {
     });
 }
 
-let currentColor = "#ff0000";
 
-// Adding new color swatch to the palette
-function addColor() {
-    const colorPicker = document.getElementById('colorPicker');
-    const color = colorPicker.value;
+
+
+//color picker
+
+
+let lastInvocationTime = 0;
+const debounceInterval = 100; // milliseconds
+
+function addColor(color) {
+    // Check if color is defined and a valid hex code
+    if (typeof color !== 'string' || !color.match(/^#[0-9A-Fa-f]{6}$/)) {
+
+        return; // Stop adding if the color is invalid
+    }
+
+    const now = Date.now();
+    if (now - lastInvocationTime < debounceInterval) {
+        return; // Prevents rapid successive calls
+    }
+    lastInvocationTime = now;
+
     const palette = document.getElementById('palette');
     const newSwatch = document.createElement('div');
     newSwatch.className = 'color-swatch';
@@ -122,9 +140,55 @@ function addColor() {
         this.style.border = '1px solid black';
         currentColor = color;
     };
+
+    const placeholder = document.getElementById('palette-placeholder');
+    if (placeholder) {
+        placeholder.style.display = 'none';
+    }
+
     palette.appendChild(newSwatch);
-    console.log("Adding color:", document.getElementById('colorPicker').value);
+    console.log("Color added:", color);
     updateHistory();
+
+    // Clear the hex input field after adding the color
+    document.getElementById('hexColorInput').value = '';
+}
+
+// Ensure color is properly passed to addColor function
+document.getElementById('colorPicker').addEventListener('change', function() {
+    addColor(this.value);
+});
+
+document.querySelector('.color-picker button').addEventListener('click', function() {
+    const hexInput = document.getElementById('hexColorInput').value.trim();
+    if (hexInput.match(/^#[0-9A-Fa-f]{6}$/)) {
+        addColor(hexInput);
+        // Resetting the input field is handled within addColor function after the color is added
+    } else {
+        console.error("Invalid hex code:", hexInput);
+        alert("Please enter a valid hex color code, including the '#'.");
+    }
+});
+
+function updateHistory() {
+    // Placeholder for history update logic
+    console.log("History updated");
+}
+
+
+
+
+
+
+
+
+
+
+// Optionally, you could add a function to clear the palette that checks if it should show the placeholder again
+function clearPalette() {
+    const palette = document.getElementById('palette');
+    palette.innerHTML = '<span id="palette-placeholder" style="color: grey; display: block;">Your color plate here</span>'; // Resets the palette
+    // No need to update history here unless you want to track this action as well
 }
 
 // Initialize interactions with SVG elements
@@ -416,3 +480,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
