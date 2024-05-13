@@ -117,9 +117,15 @@ let lastInvocationTime = 0;
 const debounceInterval = 100; // milliseconds
 
 function addColor(color) {
-    // Check if color is defined and a valid hex code
-    if (typeof color !== 'string' || !color.match(/^#[0-9A-Fa-f]{6}$/)) {
+    // Ensure color starts with '#' for CSS compatibility
+    if (!color.startsWith('#')) {
+        color = '#' + color;
+    }
 
+    // Validate the color format, adjusting the regex to accept without '#'
+    if (!color.match(/^#[0-9A-Fa-f]{6}$/)) {
+        console.error("Invalid or empty hex code:", color);
+        alert("Please enter a valid hex color code, optionally starting with '#' followed by six hex characters (0-9, A-F).");
         return; // Stop adding if the color is invalid
     }
 
@@ -154,19 +160,16 @@ function addColor(color) {
     document.getElementById('hexColorInput').value = '';
 }
 
-// Ensure color is properly passed to addColor function
-document.getElementById('colorPicker').addEventListener('change', function() {
-    addColor(this.value);
-});
-
 document.querySelector('.color-picker button').addEventListener('click', function() {
     const hexInput = document.getElementById('hexColorInput').value.trim();
-    if (hexInput.match(/^#[0-9A-Fa-f]{6}$/)) {
+    const colorPicker = document.getElementById('colorPicker').value;
+
+    // Adjust regex to allow hex codes without '#'
+    if (hexInput.match(/^(#)?[0-9A-Fa-f]{6}$/)) {
         addColor(hexInput);
-        // Resetting the input field is handled within addColor function after the color is added
     } else {
-        console.error("Invalid hex code:", hexInput);
-        alert("Please enter a valid hex color code, including the '#'.");
+        // If hex input is invalid or empty, use the color picker's value
+        addColor(colorPicker);
     }
 });
 
@@ -480,5 +483,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
 
