@@ -1,1 +1,362 @@
-function _0x3dcc(_0x3147ee,_0x5daf60){const _0x399ae7=_0x399a();return _0x3dcc=function(_0x3dcc65,_0xaf9f02){_0x3dcc65=_0x3dcc65-0x179;let _0x926eab=_0x399ae7[_0x3dcc65];return _0x926eab;},_0x3dcc(_0x3147ee,_0x5daf60);}const _0x5be7a5=_0x3dcc;(function(_0x5b41f1,_0xe5b1fa){const _0x43bdfb=_0x3dcc,_0x3bbabe=_0x5b41f1();while(!![]){try{const _0x55a352=parseInt(_0x43bdfb(0x1ea))/0x1+parseInt(_0x43bdfb(0x18f))/0x2*(parseInt(_0x43bdfb(0x192))/0x3)+-parseInt(_0x43bdfb(0x1df))/0x4+-parseInt(_0x43bdfb(0x1d1))/0x5+parseInt(_0x43bdfb(0x185))/0x6+-parseInt(_0x43bdfb(0x1bf))/0x7+parseInt(_0x43bdfb(0x183))/0x8*(parseInt(_0x43bdfb(0x1ef))/0x9);if(_0x55a352===_0xe5b1fa)break;else _0x3bbabe['push'](_0x3bbabe['shift']());}catch(_0x3910dd){_0x3bbabe['push'](_0x3bbabe['shift']());}}}(_0x399a,0x4879c));function _0x399a(){const _0x2e2dba=['change','createElement','style','SVG\x20element\x20not\x20found','clientX','Animation\x20completed\x20for:','2326992Mlwtty','result','clip-path','fill\x201s\x20ease','lineno','serializeToString','svgFile','slice','getPropertyValue','ownerSVGElement','No\x20more\x20actions\x20to\x20undo!','342060LHBHJJ','innerHTML','setAttribute','div','DOMContentLoaded','7306263dlOhgf','log','circle','fill','revokeObjectURL','imageFile','palette','colorPicker','http://www.w3.org/2000/svg','type','clipPath-','8lLmYsp','0\x200\x20500\x20500','2725380lNErQs','Please\x20upload\x20a\x20valid\x20SVG\x20file.','transition','removeAttribute','message','className','getComputedStyle','download','appendChild','matrixTransform','2DHZMRE','.color-swatch','Starting\x20fill\x20animation\x20for\x20element:','1015305BOnNfH','readAsDataURL','onclick','Current\x20index:','src','none','url(#','onload','height','1px\x20solid\x20black','getScreenCTM','palette-placeholder','createSVGPoint','getContext','removeChild','substr','getPalette','opacity','800','push','querySelector','random','getElementById','files','match','path,\x20rect,\x20circle,\x20ellipse,\x20polygon,\x20polyline','toDataURL','downloadPngButton','clipPath','currentSVG','border','target','backgroundColor','display','length','color-swatch','uploadedImage','parentNode','getItem','image/png','Error\x20occurred:','svgCanvas','Undo\x20successful,\x20current\x20index:','colno','createElementNS','3527377WlEPCt','data:image/svg+xml;charset=utf-8,','function','hexColorInput','value','viewBox','tagName','History\x20updated:','now','Column:','sqrt','downloadSvgButton','querySelectorAll','toString','addEventListener','inverse','Line:','click','2820065iIoxTi','At:','body','forEach','error','width','clientY','href'];_0x399a=function(){return _0x2e2dba;};return _0x399a();}let historyStack=[],currentIndex=-0x1,initialState,defaultColor='#ff0000',currentColor=defaultColor,lastInvocationTime=0x0;const debounceInterval=0x64;function updateHistory(){const _0x1ff8e0=_0x3dcc,_0x427224=document['getElementById'](_0x1ff8e0(0x1bb));currentIndex<historyStack[_0x1ff8e0(0x1b4)]-0x1&&(historyStack=historyStack[_0x1ff8e0(0x1e6)](0x0,currentIndex+0x1)),historyStack[_0x1ff8e0(0x1a5)](_0x427224[_0x1ff8e0(0x1eb)]),currentIndex++,console[_0x1ff8e0(0x179)](_0x1ff8e0(0x1c6),historyStack),console[_0x1ff8e0(0x179)](_0x1ff8e0(0x195),currentIndex);}function initSVGInteractions(_0x27710b){const _0xaf0b03=_0x3dcc,_0x2f1fbb=_0x27710b['querySelectorAll'](_0xaf0b03(0x1ab));_0x2f1fbb[_0xaf0b03(0x1d4)](_0x24ef82=>{const _0x24593c=_0xaf0b03;_0x24ef82[_0x24593c(0x1cd)](_0x24593c(0x1d0),function(_0x89ca1d){startFillAnimation(_0x89ca1d,_0x24ef82,currentColor),updateHistory();});let _0x273891=_0x24ef82[_0x24593c(0x1db)][_0x24593c(0x1a3)]||window[_0x24593c(0x18b)](_0x24ef82)[_0x24593c(0x1e7)](_0x24593c(0x1a3));_0x273891<0x1&&(_0x24ef82[_0x24593c(0x1db)]['pointerEvents']=_0x24593c(0x197));});}document[_0x5be7a5(0x1a8)](_0x5be7a5(0x1e5))['addEventListener'](_0x5be7a5(0x1d9),function(){const _0x4ab952=_0x5be7a5,_0x83fbc9=this[_0x4ab952(0x1a9)][0x0];if(_0x83fbc9&&_0x83fbc9[_0x4ab952(0x181)]==='image/svg+xml'){const _0x32d087=new FileReader();_0x32d087['onload']=function(_0x2c2da3){const _0x4ca7be=_0x4ab952,_0x5372c4=_0x2c2da3[_0x4ca7be(0x1b1)]['result'],_0x2ee43e=document[_0x4ca7be(0x1a8)](_0x4ca7be(0x1bb));_0x2ee43e[_0x4ca7be(0x1eb)]=_0x5372c4,initialState=_0x5372c4,initSVGInteractions(_0x2ee43e),updateHistory();},_0x32d087['readAsText'](_0x83fbc9);}else alert(_0x4ab952(0x186));});function undo(){const _0x1b556b=_0x5be7a5;if(currentIndex>0x0)currentIndex--,document[_0x1b556b(0x1a8)](_0x1b556b(0x1bb))[_0x1b556b(0x1eb)]=historyStack[currentIndex],initSVGInteractions(document[_0x1b556b(0x1a8)]('svgCanvas')),console[_0x1b556b(0x179)](_0x1b556b(0x1bc),currentIndex);else currentIndex===0x0?resetSVG():alert(_0x1b556b(0x1e9));}function resetSVG(){const _0x481789=_0x5be7a5;console['log']('Resetting\x20to\x20initial\x20state');const _0x25c766=document['getElementById'](_0x481789(0x1bb));_0x25c766[_0x481789(0x1eb)]=initialState,historyStack=[initialState],currentIndex=0x0,initSVGInteractions(_0x25c766);}function addColor(_0x54ef90){const _0x4d38fe=_0x5be7a5;!_0x54ef90['startsWith']('#')&&(_0x54ef90='#'+_0x54ef90);if(!_0x54ef90['match'](/^#[0-9A-Fa-f]{6}$/)){console[_0x4d38fe(0x1d5)]('Invalid\x20or\x20empty\x20hex\x20code:',_0x54ef90);return;}const _0x5ced53=Date[_0x4d38fe(0x1c7)]();if(_0x5ced53-lastInvocationTime<debounceInterval)return;lastInvocationTime=_0x5ced53;const _0x14892f=document[_0x4d38fe(0x1a8)](_0x4d38fe(0x17e)),_0x3d8043=document[_0x4d38fe(0x1da)](_0x4d38fe(0x1ed));_0x3d8043[_0x4d38fe(0x18a)]=_0x4d38fe(0x1b5),_0x3d8043[_0x4d38fe(0x1db)]['backgroundColor']=_0x54ef90,_0x3d8043[_0x4d38fe(0x194)]=function(){const _0x29d05c=_0x4d38fe;document[_0x29d05c(0x1cb)](_0x29d05c(0x190))[_0x29d05c(0x1d4)](_0x5259e9=>{const _0x28cebb=_0x29d05c;_0x5259e9['style'][_0x28cebb(0x1b0)]=_0x28cebb(0x197);}),this['style'][_0x29d05c(0x1b0)]='1px\x20solid\x20black',currentColor=_0x54ef90;};const _0x2719f=document[_0x4d38fe(0x1a8)](_0x4d38fe(0x19d));_0x2719f&&(_0x2719f[_0x4d38fe(0x1db)][_0x4d38fe(0x1b3)]=_0x4d38fe(0x197)),_0x14892f[_0x4d38fe(0x18d)](_0x3d8043),console[_0x4d38fe(0x179)]('Color\x20added:',_0x54ef90),updateHistory(),document[_0x4d38fe(0x1a8)](_0x4d38fe(0x1c2))[_0x4d38fe(0x1c3)]='';}document['getElementById'](_0x5be7a5(0x17f))[_0x5be7a5(0x1cd)](_0x5be7a5(0x1d9),function(){const _0x25bc71=_0x5be7a5,_0x589ac5=this[_0x25bc71(0x1c3)];console['log']('Color\x20picker\x20changed\x20to:\x20',_0x589ac5),currentColor=_0x589ac5,addColor(_0x589ac5);}),document[_0x5be7a5(0x1a6)]('.color-picker\x20button')['addEventListener'](_0x5be7a5(0x1d0),function(){const _0x5ea525=_0x5be7a5,_0x562da5=document[_0x5ea525(0x1a8)]('hexColorInput')[_0x5ea525(0x1c3)]['trim']();if(_0x562da5[_0x5ea525(0x1aa)](/^(#)?[0-9A-Fa-f]{6}$/))addColor(_0x562da5);else{const _0x979608=document[_0x5ea525(0x1a8)](_0x5ea525(0x17f))['value'];addColor(_0x979608);}}),document[_0x5be7a5(0x1a8)](_0x5be7a5(0x17d))[_0x5be7a5(0x1cd)](_0x5be7a5(0x1d9),function(_0x570495){const _0x12a05b=_0x5be7a5,_0x5c75f7=_0x570495[_0x12a05b(0x1b1)][_0x12a05b(0x1a9)][0x0],_0x1633f2=new FileReader();_0x1633f2[_0x12a05b(0x199)]=function(_0xbaa57b){const _0x4df1a2=_0x12a05b,_0x527559=document['getElementById']('uploadedImage');_0x527559[_0x4df1a2(0x196)]=_0xbaa57b[_0x4df1a2(0x1b1)][_0x4df1a2(0x1e0)],_0x527559['onload']=function(){extractColors();},_0x527559['style'][_0x4df1a2(0x1b3)]='block';},_0x1633f2[_0x12a05b(0x193)](_0x5c75f7);});function extractColors(){const _0x27f607=_0x5be7a5,_0x845085=document[_0x27f607(0x1a8)](_0x27f607(0x1b6)),_0x360aaa=new ColorThief(),_0x5be6fe=_0x360aaa[_0x27f607(0x1a2)](_0x845085,0x8),_0xebe383=document[_0x27f607(0x1a8)](_0x27f607(0x17e));_0xebe383['innerHTML']='',_0x5be6fe[_0x27f607(0x1d4)](_0x43beec=>{const _0x4665e1=_0x27f607,_0x29af4e='rgb('+_0x43beec[0x0]+',\x20'+_0x43beec[0x1]+',\x20'+_0x43beec[0x2]+')',_0x34dc33=document[_0x4665e1(0x1da)](_0x4665e1(0x1ed));_0x34dc33[_0x4665e1(0x18a)]=_0x4665e1(0x1b5),_0x34dc33[_0x4665e1(0x1db)][_0x4665e1(0x1b2)]=_0x29af4e,_0x34dc33['onclick']=function(){const _0x2368fc=_0x4665e1;document[_0x2368fc(0x1cb)](_0x2368fc(0x190))['forEach'](_0x11c348=>{const _0x106279=_0x2368fc;_0x11c348['style'][_0x106279(0x1b0)]='none';}),this['style']['border']=_0x2368fc(0x19b),currentColor=_0x29af4e;},_0xebe383['appendChild'](_0x34dc33);});}function startFillAnimation(_0x25e676,_0x52a881,_0x293abb){const _0x30c8c2=_0x5be7a5,_0x43e90b=_0x52a881['getBBox'](),_0x14ad49=_0x52a881[_0x30c8c2(0x1e8)],_0x23d8d4=_0x14ad49[_0x30c8c2(0x19e)]();_0x23d8d4['x']=_0x25e676[_0x30c8c2(0x1dd)],_0x23d8d4['y']=_0x25e676[_0x30c8c2(0x1d7)];const _0x2b0fa7=_0x23d8d4[_0x30c8c2(0x18e)](_0x14ad49[_0x30c8c2(0x19c)]()[_0x30c8c2(0x1ce)]()),_0x4585d4=_0x30c8c2(0x182)+_0x52a881[_0x30c8c2(0x1c5)]+'-'+Math[_0x30c8c2(0x1a7)]()[_0x30c8c2(0x1cc)](0x24)[_0x30c8c2(0x1a1)](0x2,0x9);let _0x5d2de0=document[_0x30c8c2(0x1be)](_0x30c8c2(0x180),_0x30c8c2(0x1ae));_0x5d2de0['setAttribute']('id',_0x4585d4);const _0x502a2f=document['createElementNS'](_0x30c8c2(0x180),_0x30c8c2(0x17a));_0x502a2f[_0x30c8c2(0x1ec)]('cx',_0x2b0fa7['x']),_0x502a2f[_0x30c8c2(0x1ec)]('cy',_0x2b0fa7['y']),_0x502a2f[_0x30c8c2(0x1ec)]('r',0x0),_0x5d2de0[_0x30c8c2(0x18d)](_0x502a2f),_0x52a881[_0x30c8c2(0x1e8)]['appendChild'](_0x5d2de0),_0x52a881[_0x30c8c2(0x1db)][_0x30c8c2(0x1ae)]=_0x30c8c2(0x198)+_0x4585d4+')',_0x52a881['style'][_0x30c8c2(0x17b)]=_0x293abb;const _0x1e3d68=Math[_0x30c8c2(0x1c9)](_0x43e90b[_0x30c8c2(0x1d6)]**0x2+_0x43e90b['height']**0x2);animateCircle(_0x502a2f,_0x2b0fa7['x'],_0x2b0fa7['y'],_0x1e3d68,()=>{const _0x282ac6=_0x30c8c2;_0x52a881['style'][_0x282ac6(0x1ae)]='',_0x52a881[_0x282ac6(0x188)](_0x282ac6(0x1e1));}),console['log'](_0x30c8c2(0x191),_0x52a881),updateHistory();}function animateCircle(_0x2b2c11,_0x137a6a,_0x430352,_0x2563bd,_0x390ea9){let _0x451c7b=0x0;const _0x1e264e=setInterval(()=>{const _0x5a9701=_0x3dcc;_0x451c7b+=0x3,_0x2b2c11['setAttribute']('cx',_0x137a6a),_0x2b2c11['setAttribute']('cy',_0x430352),_0x2b2c11[_0x5a9701(0x1ec)]('r',_0x451c7b),_0x451c7b>=_0x2563bd&&(clearInterval(_0x1e264e),_0x2b2c11[_0x5a9701(0x1b7)]&&_0x2b2c11['parentNode'][_0x5a9701(0x1a0)](_0x2b2c11),typeof _0x390ea9===_0x5a9701(0x1c1)&&_0x390ea9(),console[_0x5a9701(0x179)](_0x5a9701(0x1de),_0x2b2c11),updateHistory());},0xa);}function startDissolveAnimation(_0x2dc824,_0x101a8d){const _0x650ead=_0x5be7a5;_0x2dc824[_0x650ead(0x1db)][_0x650ead(0x187)]=_0x650ead(0x1e2),_0x2dc824['style'][_0x650ead(0x17b)]=_0x101a8d;}function adjustSVGSize(){const _0x4d797b=_0x5be7a5,_0x139e2a=document['getElementById'](_0x4d797b(0x1bb));if(!_0x139e2a){console[_0x4d797b(0x1d5)](_0x4d797b(0x1dc));return;}_0x139e2a[_0x4d797b(0x1ec)](_0x4d797b(0x1c4),_0x4d797b(0x184)),_0x139e2a[_0x4d797b(0x1ec)]('preserveAspectRatio','xMidYMid\x20meet'),_0x139e2a[_0x4d797b(0x1ec)](_0x4d797b(0x1d6),_0x4d797b(0x1a4)),_0x139e2a['setAttribute'](_0x4d797b(0x19a),'600'),console[_0x4d797b(0x179)]('SVG\x20dimensions\x20and\x20properties\x20adjusted.');}adjustSVGSize();function downloadSVG(){const _0x50f542=_0x5be7a5,_0x15ccce=document[_0x50f542(0x1a8)](_0x50f542(0x1bb));if(_0x15ccce){const _0x347389=_0x15ccce[_0x50f542(0x1eb)],_0x503258=new Blob([_0x347389],{'type':'image/svg+xml'}),_0x17f2c1=URL['createObjectURL'](_0x503258),_0x163328=document[_0x50f542(0x1da)]('a');_0x163328[_0x50f542(0x1d8)]=_0x17f2c1,_0x163328[_0x50f542(0x18c)]='edited-svg.svg',document[_0x50f542(0x1d3)][_0x50f542(0x18d)](_0x163328),_0x163328[_0x50f542(0x1d0)](),document['body']['removeChild'](_0x163328),URL[_0x50f542(0x17c)](_0x17f2c1);}}function downloadSVGAsPNG(){const _0x4c4324=_0x5be7a5,_0x14bd3f=document[_0x4c4324(0x1a8)](_0x4c4324(0x1bb)),_0x2b7198=new XMLSerializer()[_0x4c4324(0x1e4)](_0x14bd3f),_0x3b355f=_0x4c4324(0x1c0)+encodeURIComponent(_0x2b7198),_0x3d524b=new Image();_0x3d524b[_0x4c4324(0x199)]=function(){const _0x1578c9=_0x4c4324,_0x5653ba=document['createElement']('canvas');_0x5653ba[_0x1578c9(0x1d6)]=_0x3d524b['width'],_0x5653ba[_0x1578c9(0x19a)]=_0x3d524b[_0x1578c9(0x19a)];const _0x497897=_0x5653ba[_0x1578c9(0x19f)]('2d');_0x497897['drawImage'](_0x3d524b,0x0,0x0);const _0x448c93=_0x5653ba[_0x1578c9(0x1ac)](_0x1578c9(0x1b9)),_0xfec952=document[_0x1578c9(0x1da)]('a');_0xfec952[_0x1578c9(0x1d8)]=_0x448c93,_0xfec952[_0x1578c9(0x18c)]='edited-image.png',document[_0x1578c9(0x1d3)][_0x1578c9(0x18d)](_0xfec952),_0xfec952[_0x1578c9(0x1d0)](),document[_0x1578c9(0x1d3)][_0x1578c9(0x1a0)](_0xfec952);},_0x3d524b[_0x4c4324(0x196)]=_0x3b355f;}document[_0x5be7a5(0x1cd)](_0x5be7a5(0x1ee),function(){const _0x72d18c=_0x5be7a5,_0x169b3c=document['getElementById'](_0x72d18c(0x1ca));_0x169b3c&&_0x169b3c[_0x72d18c(0x1cd)](_0x72d18c(0x1d0),function(){downloadSVG();});}),document['addEventListener']('DOMContentLoaded',function(){const _0x4e3f62=_0x5be7a5,_0x3db9f0=document[_0x4e3f62(0x1a8)](_0x4e3f62(0x1ad));_0x3db9f0&&_0x3db9f0[_0x4e3f62(0x1cd)](_0x4e3f62(0x1d0),function(){downloadSVGAsPNG();});}),document[_0x5be7a5(0x1cd)]('keydown',function(_0x516e39){_0x516e39['ctrlKey']&&_0x516e39['key']==='z'&&undo();}),document['addEventListener'](_0x5be7a5(0x1ee),function(){const _0xa1fc0a=_0x5be7a5,_0x25a886=document['getElementById']('svgCanvas'),_0x4d4e05=localStorage[_0xa1fc0a(0x1b8)](_0xa1fc0a(0x1af));_0x4d4e05&&(_0x25a886[_0xa1fc0a(0x1eb)]=_0x4d4e05,initSVGInteractions(_0x25a886)),adjustSVGSize();}),window[_0x5be7a5(0x1cd)](_0x5be7a5(0x1d5),function(_0x34bff4){const _0x1b59a4=_0x5be7a5;console[_0x1b59a4(0x1d5)](_0x1b59a4(0x1ba),_0x34bff4[_0x1b59a4(0x189)]),console[_0x1b59a4(0x1d5)](_0x1b59a4(0x1d2),_0x34bff4['filename'],_0x1b59a4(0x1cf),_0x34bff4[_0x1b59a4(0x1e3)],_0x1b59a4(0x1c8),_0x34bff4[_0x1b59a4(0x1bd)]);});
+let historyStack = [];
+let currentIndex = -1;
+let initialState;
+let defaultColor = '#ff0000'; // Default color set to red
+let currentColor = defaultColor; // Initialize current color with default
+let lastInvocationTime = 0;
+const debounceInterval = 100; // milliseconds
+
+// Function to update the history stack
+function updateHistory() {
+    const svgCanvas = document.getElementById('svgCanvas');
+    if (currentIndex < historyStack.length - 1) {
+        historyStack = historyStack.slice(0, currentIndex + 1);
+    }
+    historyStack.push(svgCanvas.innerHTML);
+    currentIndex++;
+    console.log("History updated:", historyStack);
+    console.log("Current index:", currentIndex);
+}
+
+// Function to initialize SVG interactions
+function initSVGInteractions(svgElement) {
+    const fillableShapes = svgElement.querySelectorAll('path, rect, circle, ellipse, polygon, polyline');
+    fillableShapes.forEach(shape => {
+        shape.addEventListener('click', function(event) {
+            startFillAnimation(event, shape, currentColor);
+        });
+
+        // Ignore pointer events for elements with opacity less than 1
+        let opacity = shape.style.opacity || window.getComputedStyle(shape).getPropertyValue('opacity');
+        if (opacity < 1) {
+            shape.style.pointerEvents = 'none';
+        }
+    });
+}
+
+// Function to handle file upload
+document.getElementById('svgFile').addEventListener('change', function() {
+    const file = this.files[0];
+    if (file && file.type === "image/svg+xml") {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const newSvg = e.target.result;
+            const svgCanvas = document.getElementById('svgCanvas');
+            svgCanvas.innerHTML = newSvg;
+            initialState = newSvg; // Store the initial state after loading the SVG
+            initSVGInteractions(svgCanvas);
+            updateHistory(); // Initial load should also update history
+        };
+        reader.readAsText(file);
+    } else {
+        alert('Please upload a valid SVG file.');
+    }
+});
+
+// Function to undo the last action
+function undo() {
+    if (currentIndex > 0) {
+        currentIndex--;
+        document.getElementById('svgCanvas').innerHTML = historyStack[currentIndex];
+        initSVGInteractions(document.getElementById('svgCanvas')); // Reinitialize interactions
+        console.log("Undo successful, current index:", currentIndex);
+
+        // Perform the undo action twice if necessary
+        if (currentIndex > 0 && document.getElementById('svgCanvas').innerHTML === '') {
+            currentIndex--;
+            document.getElementById('svgCanvas').innerHTML = historyStack[currentIndex];
+            initSVGInteractions(document.getElementById('svgCanvas')); // Reinitialize interactions
+            console.log("Undo successful on second attempt, current index:", currentIndex);
+        }
+    } else if (currentIndex === 0) {
+        resetSVG(); // Reset to initial state when at the first action
+    } else {
+        alert("No more actions to undo!");
+    }
+}
+
+// Function to reset SVG to initial state
+function resetSVG() {
+    console.log("Resetting to initial state");
+    const svgCanvas = document.getElementById('svgCanvas');
+    svgCanvas.innerHTML = initialState;
+    historyStack = [initialState]; // Reset the history stack
+    currentIndex = 0; // Reset the current index
+    initSVGInteractions(svgCanvas); // Reinitialize interactions
+}
+
+// Function to add a color to the palette
+function addColor(color) {
+    if (!color.startsWith('#')) {
+        color = '#' + color;
+    }
+
+    if (!color.match(/^#[0-9A-Fa-f]{6}$/)) {
+        console.error("Invalid or empty hex code:", color);
+        return; // Stop adding if the color is invalid
+    }
+
+    const now = Date.now();
+    if (now - lastInvocationTime < debounceInterval) {
+        return; // Prevents rapid successive calls
+    }
+    lastInvocationTime = now;
+
+    const palette = document.getElementById('palette');
+    const newSwatch = document.createElement('div');
+    newSwatch.className = 'color-swatch';
+    newSwatch.style.backgroundColor = color;
+    newSwatch.onclick = function() {
+        document.querySelectorAll('.color-swatch').forEach(swatch => {
+            swatch.style.border = 'none';
+        });
+        this.style.border = '1px solid black';
+        currentColor = color;
+    };
+
+    const placeholder = document.getElementById('palette-placeholder');
+    if (placeholder) {
+        placeholder.style.display = 'none';
+    }
+
+    palette.appendChild(newSwatch);
+    console.log("Color added:", color);
+    updateHistory(); // Update history after adding a color
+
+    // Clear the hex input field after adding the color
+    document.getElementById('hexColorInput').value = '';
+}
+
+// Event listener for color picker change
+document.getElementById('colorPicker').addEventListener('change', function() {
+    const colorValue = this.value;
+    console.log("Color picker changed to: ", colorValue);
+    currentColor = colorValue;
+    addColor(colorValue);
+});
+
+// Event listener for the add color button
+document.querySelector('.color-picker button').addEventListener('click', function() {
+    const hexInput = document.getElementById('hexColorInput').value.trim();
+    if (hexInput.match(/^(#)?[0-9A-Fa-f]{6}$/)) {
+        addColor(hexInput);
+    } else {
+        const colorPicker = document.getElementById('colorPicker').value;
+        addColor(colorPicker);
+    }
+});
+
+// Function to handle image file upload for color extraction
+document.getElementById('imageFile').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const imgElement = document.getElementById('uploadedImage');
+        imgElement.src = e.target.result;
+        imgElement.onload = function() {
+            extractColors(); // Automatically extract colors after the image loads
+        }
+        imgElement.style.display = 'block'; // Show the image
+    };
+    reader.readAsDataURL(file);
+});
+
+// Function to extract colors from the uploaded image
+function extractColors() {
+    const img = document.getElementById('uploadedImage');
+    const colorThief = new ColorThief();
+    const colors = colorThief.getPalette(img, 8); // Extracts 8 dominant colors
+    const palette = document.getElementById('palette');
+    palette.innerHTML = ''; // Clear existing swatches
+    colors.forEach(color => {
+        const colorHex = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+        const newSwatch = document.createElement('div');
+        newSwatch.className = 'color-swatch';
+        newSwatch.style.backgroundColor = colorHex;
+        newSwatch.onclick = function() {
+            document.querySelectorAll('.color-swatch').forEach(swatch => {
+                swatch.style.border = 'none';
+            });
+            this.style.border = '1px solid black';
+            currentColor = colorHex;
+        };
+        palette.appendChild(newSwatch);
+    });
+}
+
+// Function to start the filling animation for an SVG element
+function startFillAnimation(event, element, color) {
+    const bounds = element.getBBox();
+    const svg = element.ownerSVGElement;
+
+    // Get the mouse click position relative to the SVG element
+    const point = svg.createSVGPoint();
+    point.x = event.clientX;
+    point.y = event.clientY;
+    const transformedPoint = point.matrixTransform(svg.getScreenCTM().inverse());
+
+    const clipPathId = 'clipPath-' + element.tagName + '-' + Math.random().toString(36).substr(2, 9);
+    let clipPath = document.createElementNS("http://www.w3.org/2000/svg", "clipPath");
+    clipPath.setAttribute('id', clipPathId);
+    const clipCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    clipCircle.setAttribute('cx', transformedPoint.x);
+    clipCircle.setAttribute('cy', transformedPoint.y);
+    clipCircle.setAttribute('r', 0);
+    clipPath.appendChild(clipCircle);
+    element.ownerSVGElement.appendChild(clipPath);
+    element.style.clipPath = `url(#${clipPathId})`;
+    element.style.fill = color;
+    const maxRadius = Math.sqrt(bounds.width ** 2 + bounds.height ** 2);
+    animateCircle(clipCircle, transformedPoint.x, transformedPoint.y, maxRadius, () => {
+        element.style.clipPath = ''; // Remove the clipPath after animation
+        element.removeAttribute('clip-path'); // Ensure clip-path is removed
+        updateHistory(); // Update history after the animation completes
+    });
+    console.log("Starting fill animation for element:", element);
+}
+
+// Function to animate the expansion of a circle used in clipping paths
+function animateCircle(circle, cx, cy, maxRadius, callback) {
+    let radius = 0;
+    const interval = setInterval(() => {
+        radius += 3;
+        circle.setAttribute('cx', cx);
+        circle.setAttribute('cy', cy);
+        circle.setAttribute('r', radius);
+        if (radius >= maxRadius) {
+            clearInterval(interval);
+            if (circle.parentNode) {
+                circle.parentNode.removeChild(circle); // Remove the circle after animation
+            }
+            if (typeof callback === 'function') {
+                callback();
+            }
+            console.log("Animation completed for:", circle);
+        }
+    }, 10);
+}
+
+// Function to start the dissolve animation for an SVG element
+function startDissolveAnimation(element, color) {
+    element.style.transition = 'fill 1s ease';
+    element.style.fill = color;
+    updateHistory(); // Update history after the animation completes
+}
+
+// Function to adjust SVG size to match the canvas
+function adjustSVGSize() {
+    const svgElement = document.getElementById('svgCanvas');
+    if (!svgElement) {
+        console.error('SVG element not found');
+        return;
+    }
+
+    // Set the viewBox to the original size (update this as per your specific SVG content)
+    svgElement.setAttribute('viewBox', '0 0 500 500');
+
+    // Ensure the preserveAspectRatio is set to default or as needed
+    svgElement.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+
+    // Adjust the dimensions of the SVG element to match the canvas size
+    svgElement.setAttribute('width', '800');
+    svgElement.setAttribute('height', '600');
+
+    console.log('SVG dimensions and properties adjusted.');
+}
+
+// Call the function to adjust the SVG dimensions
+adjustSVGSize();
+
+// Function to download the SVG
+function downloadSVG() {
+    const svgCanvas = document.getElementById('svgCanvas');
+    if (svgCanvas) {
+        const svgData = svgCanvas.innerHTML;
+        const blob = new Blob([svgData], { type: 'image/svg+xml' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'edited-svg.svg'; // Provide a default file name for the download
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url); // Clean up the URL object
+    }
+}
+
+// Function to download the SVG as PNG
+function downloadSVGAsPNG() {
+    const svgCanvas = document.getElementById('svgCanvas');
+    const svgData = new XMLSerializer().serializeToString(svgCanvas);
+
+    // Prepare SVG data and create a Blob URL
+    const data = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgData);
+    const image = new Image();
+
+    image.onload = function() {
+        // When the image is loaded, render it to the canvas
+        const canvas = document.createElement('canvas');
+        canvas.width = image.width;
+        canvas.height = image.height;
+        const context = canvas.getContext('2d');
+        context.drawImage(image, 0, 0);
+
+        // Convert canvas to PNG
+        const pngUrl = canvas.toDataURL('image/png');
+
+        // Trigger the download
+        const a = document.createElement('a');
+        a.href = pngUrl;
+        a.download = 'edited-image.png'; // Provide a default file name for the download
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    };
+
+    image.src = data;
+}
+
+// Event listener for downloading SVG
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadButton = document.getElementById('downloadSvgButton');
+    if (downloadButton) {
+        downloadButton.addEventListener('click', function() {
+            downloadSVG();
+        });
+    }
+});
+
+// Event listener for downloading SVG as PNG
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadPngButton = document.getElementById('downloadPngButton');
+    if (downloadPngButton) {
+        downloadPngButton.addEventListener('click', function() {
+            downloadSVGAsPNG();
+        });
+    }
+});
+
+// Event listener to handle keyboard shortcut for undo operation
+document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key === 'z') {
+        undo();
+    }
+});
+
+// Event listener to handle DOM content loaded
+document.addEventListener('DOMContentLoaded', function () {
+    const svgCanvas = document.getElementById('svgCanvas');
+    const storedSvg = localStorage.getItem('currentSVG');
+    if (storedSvg) {
+        svgCanvas.innerHTML = storedSvg; // Load the SVG into the editor
+        initSVGInteractions(svgCanvas); // Reinitialize interactions
+    }
+
+    adjustSVGSize(); // Adjust SVG size to match the canvas
+});
+
+// Error handling for global script errors
+window.addEventListener('error', function(event) {
+    console.error('Error occurred:', event.message);
+    console.error('At:', event.filename, 'Line:', event.lineno, 'Column:', event.colno);
+});
