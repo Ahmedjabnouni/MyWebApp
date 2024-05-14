@@ -41,6 +41,16 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
+                <button id="undoButton" class="btn btn-outline-dark mobile-only" data-toggle="tooltip" title="Undo the last action">
+                    <svg fill="#000000" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g data-name="Layer 2">
+                            <g data-name="arrow-back">
+                                <rect width="24" height="24" transform="rotate(90 12 12)" opacity="0"/>
+                                <path d="M19 11H7.14l3.63-4.36a1 1 0 1 0-1.54-1.28l-5 6a1.19 1.19 0 0 0-.09.15c0 .05 0 .08-.07.13A1 1 0 0 0 4 12a1 1 0 0 0 .07.36c0 .05 0 .08.07.13a1.19 1.19 0 0 0 .09.15l5 6A1 1 0 0 0 10 19a1 1 0 0 0 .64-.23 1 1 0 0 0 .13-1.41L7.14 13H19a1 1 0 0 0 0-2z"/>
+                            </g>
+                        </g>
+                    </svg>
+                </button>
                 <div class="svg-canvas" data-toggle="tooltip" title="Click on a shape to fill with the selected color">
                     <svg id="svgCanvas" width="100%" viewBox="0 0 800 600"></svg>
                 </div>
@@ -79,16 +89,7 @@
                     <div class="download-buttons" style="display: flex; flex-direction: column;">
                         <button id="downloadSvgButton" class="btn btn-outline-dark" style="margin-bottom: 8px;margin-top: 16px;background-color: #8334f7;color: rgb(255 255 255);" data-toggle="tooltip" title="" data-original-title="Download your SVG file">Download SVG</button>                        <button id="downloadPngButton" class="btn btn-outline-dark" data-toggle="tooltip" title="Download your image as PNG">Download PNG</button>
                     </div>
-                    <button id="undoButton" class="btn btn-outline-dark mobile-only" data-toggle="tooltip" title="Undo the last action">
-                        <svg fill="#000000" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <g data-name="Layer 2">
-                                <g data-name="arrow-back">
-                                    <rect width="24" height="24" transform="rotate(90 12 12)" opacity="0"/>
-                                    <path d="M19 11H7.14l3.63-4.36a1 1 0 1 0-1.54-1.28l-5 6a1.19 1.19 0 0 0-.09.15c0 .05 0 .08-.07.13A1 1 0 0 0 4 12a1 1 0 0 0 .07.36c0 .05 0 .08.07.13a1.19 1.19 0 0 0 .09.15l5 6A1 1 0 0 0 10 19a1 1 0 0 0 .64-.23 1 1 0 0 0 .13-1.41L7.14 13H19a1 1 0 0 0 0-2z"/>
-                                </g>
-                            </g>
-                        </svg>
-                    </button>
+                    
                 </div>
             </div>
         </div>
