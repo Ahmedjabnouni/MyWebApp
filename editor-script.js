@@ -61,27 +61,13 @@ function undo() {
         initSVGInteractions(document.getElementById('svgCanvas')); // Reinitialize interactions
         console.log("Undo successful, current index:", currentIndex);
     } else if (currentIndex === 0) {
-        resetSVG(); // Reset to initial state when at the first action
+        const svgCanvas = document.getElementById('svgCanvas');
+        svgCanvas.innerHTML = initialState;
+        historyStack = [initialState]; // Reset the history stack
+        currentIndex = 0; // Reset the current index
+        initSVGInteractions(svgCanvas); // Reinitialize interactions
     } else {
         alert("No more actions to undo!");
-    }
-}
-
-// Function to reset SVG to initial state
-function resetSVG() {
-    console.log("Resetting to initial state");
-    const svgCanvas = document.getElementById('svgCanvas');
-    svgCanvas.innerHTML = initialState;
-    historyStack = [initialState]; // Reset the history stack
-    currentIndex = 0; // Reset the current index
-    initSVGInteractions(svgCanvas); // Reinitialize interactions
-
-    // Move one step forward if possible
-    if (historyStack.length > 1) {
-        currentIndex++;
-        document.getElementById('svgCanvas').innerHTML = historyStack[currentIndex];
-        initSVGInteractions(document.getElementById('svgCanvas')); // Reinitialize interactions
-        console.log("Moved to +1 history state after reset, current index:", currentIndex);
     }
 }
 
