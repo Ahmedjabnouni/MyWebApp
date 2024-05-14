@@ -1,5 +1,5 @@
 let historyStack = [];
-let currentIndex = 0;
+let currentIndex = -1;
 let initialState;
 let defaultColor = '#ff0000'; // Default color set to red
 let currentColor = defaultColor; // Initialize current color with default
@@ -45,7 +45,7 @@ document.getElementById('svgFile').addEventListener('change', function() {
             svgCanvas.innerHTML = newSvg;
             initialState = newSvg; // Store the initial state after loading the SVG
             initSVGInteractions(svgCanvas);
-            updateHistory(); // Initial load should also update history
+           
         };
         reader.readAsText(file);
     } else {
