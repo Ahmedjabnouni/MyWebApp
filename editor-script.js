@@ -1,5 +1,5 @@
 let historyStack = [];
-let currentIndex = -1;
+let currentIndex = 0;
 let initialState;
 let defaultColor = '#ff0000'; // Default color set to red
 let currentColor = defaultColor; // Initialize current color with default
