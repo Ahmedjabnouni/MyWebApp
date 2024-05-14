@@ -1,6 +1,4 @@
-// editor-script.js
-
-let historyStack = [];
+ let historyStack = [];
 let currentIndex = -1;
 let initialState;
 let defaultColor = '#ff0000'; // Default color set to red
