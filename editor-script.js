@@ -1,1 +1,104 @@
-const _0x3b5992=_0xabda;(function(_0x2a562b,_0x592a0c){const _0x56781f=_0xabda,_0x8a3764=_0x2a562b();while(!![]){try{const _0x2d509b=parseInt(_0x56781f(0x93))/0x1*(parseInt(_0x56781f(0xf6))/0x2)+parseInt(_0x56781f(0xcb))/0x3*(parseInt(_0x56781f(0xad))/0x4)+parseInt(_0x56781f(0x8a))/0x5+-parseInt(_0x56781f(0x8f))/0x6*(-parseInt(_0x56781f(0x87))/0x7)+parseInt(_0x56781f(0xfd))/0x8*(-parseInt(_0x56781f(0x8e))/0x9)+parseInt(_0x56781f(0xd9))/0xa*(parseInt(_0x56781f(0xb6))/0xb)+-parseInt(_0x56781f(0xca))/0xc;if(_0x2d509b===_0x592a0c)break;else _0x8a3764['push'](_0x8a3764['shift']());}catch(_0x35151f){_0x8a3764['push'](_0x8a3764['shift']());}}}(_0x6bc2,0x2d848));function _0x6bc2(){const _0x1e04bd=['createObjectURL','4Kelqox','svgCanvas','push','uploadedImage','ctrlKey','type','sqrt','result','SVG\x20dimensions\x20and\x20properties\x20adjusted.','296428pBZRyR','color-swatch','palette','change','fill','Please\x20upload\x20a\x20valid\x20SVG\x20file.','border','substr','clipPath','className','onload','clipPath-','createElementNS','log','At:','preserveAspectRatio','tagName','DOMContentLoaded','body','files','4005420iOTcaI','583761izOkvS','display','Undo\x20successful,\x20current\x20index:','toString','downloadSvgButton','colno','backgroundColor','colorPicker','parentNode','canvas','onclick','edited-svg.svg','key','message','10tRxjrB','image/png','inverse','addEventListener','getContext','Line:','Column:','800','600','currentSVG','getPalette','click','height','removeAttribute','querySelectorAll','width','clip-path','fill\x201s\x20ease','readAsDataURL','getComputedStyle','pointerEvents','toDataURL','url(#','now','.color-swatch','random','History\x20updated:','Error\x20occurred:','image/svg+xml','117416eUlYZM','createElement','lineno','path,\x20rect,\x20circle,\x20ellipse,\x20polygon,\x20polyline','1px\x20solid\x20black','none','rgb(','8kUMNfp','style','serializeToString','Color\x20added:','length','slice','circle','getElementById','266896XBVddA','value','createSVGPoint','1463155LmVUko','Animation\x20completed\x20for:','src','href','2745261EXtNRR','12jPJsMH','appendChild','setAttribute','0\x200\x20500\x20500','4tHohvS','No\x20more\x20actions\x20to\x20undo!','imageFile','readAsText','filename','Invalid\x20or\x20empty\x20hex\x20code:','Starting\x20fill\x20animation\x20for\x20element:','target','drawImage','getPropertyValue','http://www.w3.org/2000/svg','forEach','Color\x20picker\x20changed\x20to:\x20','error','ownerSVGElement','download','innerHTML','palette-placeholder','svgFile','div','clientY','match','viewBox','startsWith','SVG\x20element\x20not\x20found'];_0x6bc2=function(){return _0x1e04bd;};return _0x6bc2();}let historyStack=[],currentIndex=-0x1,initialState,defaultColor='#ff0000',currentColor=defaultColor,lastInvocationTime=0x0;const debounceInterval=0x64;function updateHistory(){const _0x7ca0a3=_0xabda,_0x74217e=document[_0x7ca0a3(0x104)](_0x7ca0a3(0xae));currentIndex<historyStack[_0x7ca0a3(0x101)]-0x1&&(historyStack=historyStack[_0x7ca0a3(0x102)](0x0,currentIndex+0x1)),historyStack[_0x7ca0a3(0xaf)](_0x74217e['innerHTML']),currentIndex++,console['log'](_0x7ca0a3(0xf3),historyStack),console[_0x7ca0a3(0xc3)]('Current\x20index:',currentIndex);}function initSVGInteractions(_0x189401){const _0x1c3354=_0xabda,_0xe400b7=_0x189401[_0x1c3354(0xe7)](_0x1c3354(0xf9));_0xe400b7['forEach'](_0x569764=>{const _0x22a9b9=_0x1c3354;_0x569764[_0x22a9b9(0xdc)]('click',function(_0x1958a5){startFillAnimation(_0x1958a5,_0x569764,currentColor);});let _0x2d144a=_0x569764['style']['opacity']||window[_0x22a9b9(0xec)](_0x569764)[_0x22a9b9(0x9c)]('opacity');_0x2d144a<0x1&&(_0x569764[_0x22a9b9(0xfe)][_0x22a9b9(0xed)]=_0x22a9b9(0xfb));});}document[_0x3b5992(0x104)](_0x3b5992(0xa5))['addEventListener'](_0x3b5992(0xb9),function(){const _0x484664=_0x3b5992,_0x1d583b=this[_0x484664(0xc9)][0x0];if(_0x1d583b&&_0x1d583b[_0x484664(0xb2)]===_0x484664(0xf5)){const _0x39b3b2=new FileReader();_0x39b3b2[_0x484664(0xc0)]=function(_0x57c1c0){const _0x1d4c1e=_0x484664,_0x309515=_0x57c1c0[_0x1d4c1e(0x9a)][_0x1d4c1e(0xb4)],_0x163f58=document['getElementById'](_0x1d4c1e(0xae));_0x163f58[_0x1d4c1e(0xa3)]=_0x309515,initialState=_0x309515,initSVGInteractions(_0x163f58),updateHistory();},_0x39b3b2[_0x484664(0x96)](_0x1d583b);}else alert(_0x484664(0xbb));});function undo(){const _0x3cb5a2=_0x3b5992;if(currentIndex>0x0)currentIndex--,document[_0x3cb5a2(0x104)](_0x3cb5a2(0xae))[_0x3cb5a2(0xa3)]=historyStack[currentIndex],initSVGInteractions(document[_0x3cb5a2(0x104)](_0x3cb5a2(0xae))),console['log'](_0x3cb5a2(0xcd),currentIndex);else currentIndex===0x0?resetSVG():alert(_0x3cb5a2(0x94));}function resetSVG(){const _0xda6d61=_0x3b5992;console[_0xda6d61(0xc3)]('Resetting\x20to\x20initial\x20state');const _0xfcc0e6=document[_0xda6d61(0x104)](_0xda6d61(0xae));if(initialState)_0xfcc0e6[_0xda6d61(0xa3)]=initialState;else{const _0x435a60=localStorage['getItem'](_0xda6d61(0xe2));_0x435a60&&(_0xfcc0e6[_0xda6d61(0xa3)]=_0x435a60);}historyStack=[_0xfcc0e6[_0xda6d61(0xa3)]],currentIndex=0x0,initSVGInteractions(_0xfcc0e6);}function addColor(_0x4da9da){const _0xf0b878=_0x3b5992;!_0x4da9da[_0xf0b878(0xaa)]('#')&&(_0x4da9da='#'+_0x4da9da);if(!_0x4da9da[_0xf0b878(0xa8)](/^#[0-9A-Fa-f]{6}$/)){console[_0xf0b878(0xa0)](_0xf0b878(0x98),_0x4da9da);return;}const _0x166d34=Date[_0xf0b878(0xf0)]();if(_0x166d34-lastInvocationTime<debounceInterval)return;lastInvocationTime=_0x166d34;const _0x1eb972=document[_0xf0b878(0x104)](_0xf0b878(0xb8)),_0x2e0d36=document[_0xf0b878(0xf7)](_0xf0b878(0xa6));_0x2e0d36['className']='color-swatch',_0x2e0d36[_0xf0b878(0xfe)][_0xf0b878(0xd1)]=_0x4da9da,_0x2e0d36[_0xf0b878(0xd5)]=function(){const _0x4a61cb=_0xf0b878;document[_0x4a61cb(0xe7)](_0x4a61cb(0xf1))[_0x4a61cb(0x9e)](_0x54a1ea=>{const _0x3702ab=_0x4a61cb;_0x54a1ea[_0x3702ab(0xfe)]['border']=_0x3702ab(0xfb);}),this[_0x4a61cb(0xfe)][_0x4a61cb(0xbc)]=_0x4a61cb(0xfa),currentColor=_0x4da9da;};const _0x39620b=document[_0xf0b878(0x104)](_0xf0b878(0xa4));_0x39620b&&(_0x39620b[_0xf0b878(0xfe)][_0xf0b878(0xcc)]=_0xf0b878(0xfb)),_0x1eb972['appendChild'](_0x2e0d36),console[_0xf0b878(0xc3)](_0xf0b878(0x100),_0x4da9da),document[_0xf0b878(0x104)]('hexColorInput')[_0xf0b878(0x88)]='';}document[_0x3b5992(0x104)]('colorPicker')['addEventListener']('change',function(){const _0x86fb63=_0x3b5992,_0x5299d9=this[_0x86fb63(0x88)];console[_0x86fb63(0xc3)](_0x86fb63(0x9f),_0x5299d9),currentColor=_0x5299d9,addColor(_0x5299d9);}),document['querySelector']('.color-picker\x20button')[_0x3b5992(0xdc)](_0x3b5992(0xe4),function(){const _0x56805a=_0x3b5992,_0x450ccf=document[_0x56805a(0x104)]('hexColorInput')[_0x56805a(0x88)]['trim']();if(_0x450ccf[_0x56805a(0xa8)](/^(#)?[0-9A-Fa-f]{6}$/))addColor(_0x450ccf);else{const _0x41e8e5=document[_0x56805a(0x104)](_0x56805a(0xd2))[_0x56805a(0x88)];addColor(_0x41e8e5);}}),document[_0x3b5992(0x104)](_0x3b5992(0x95))[_0x3b5992(0xdc)](_0x3b5992(0xb9),function(_0x1c01b5){const _0x2e288e=_0x3b5992,_0x24b3c3=_0x1c01b5[_0x2e288e(0x9a)][_0x2e288e(0xc9)][0x0],_0x543f67=new FileReader();_0x543f67[_0x2e288e(0xc0)]=function(_0x468611){const _0x571626=_0x2e288e,_0x74e0e0=document[_0x571626(0x104)](_0x571626(0xb0));_0x74e0e0['src']=_0x468611['target'][_0x571626(0xb4)],_0x74e0e0[_0x571626(0xc0)]=function(){extractColors();},_0x74e0e0[_0x571626(0xfe)][_0x571626(0xcc)]='block';},_0x543f67[_0x2e288e(0xeb)](_0x24b3c3);});function extractColors(){const _0x16ed81=_0x3b5992,_0xe17fff=document[_0x16ed81(0x104)](_0x16ed81(0xb0)),_0x25d49e=new ColorThief(),_0x21985b=_0x25d49e[_0x16ed81(0xe3)](_0xe17fff,0x8),_0x1b11b8=document['getElementById']('palette');_0x1b11b8[_0x16ed81(0xa3)]='',_0x21985b[_0x16ed81(0x9e)](_0xb418b8=>{const _0x28a2b4=_0x16ed81,_0x417a95=_0x28a2b4(0xfc)+_0xb418b8[0x0]+',\x20'+_0xb418b8[0x1]+',\x20'+_0xb418b8[0x2]+')',_0x5194ed=document[_0x28a2b4(0xf7)](_0x28a2b4(0xa6));_0x5194ed[_0x28a2b4(0xbf)]=_0x28a2b4(0xb7),_0x5194ed['style'][_0x28a2b4(0xd1)]=_0x417a95,_0x5194ed[_0x28a2b4(0xd5)]=function(){const _0x2c45d0=_0x28a2b4;document[_0x2c45d0(0xe7)](_0x2c45d0(0xf1))[_0x2c45d0(0x9e)](_0x473d57=>{const _0x226d47=_0x2c45d0;_0x473d57[_0x226d47(0xfe)][_0x226d47(0xbc)]=_0x226d47(0xfb);}),this[_0x2c45d0(0xfe)]['border']=_0x2c45d0(0xfa),currentColor=_0x417a95;},_0x1b11b8[_0x28a2b4(0x90)](_0x5194ed);});}function startFillAnimation(_0x5462dc,_0x512ede,_0x37dfbf){const _0x35d4be=_0x3b5992,_0x3b41f4=_0x512ede['getBBox'](),_0x5d82b2=_0x512ede[_0x35d4be(0xa1)],_0x161d6e=_0x5d82b2[_0x35d4be(0x89)]();_0x161d6e['x']=_0x5462dc['clientX'],_0x161d6e['y']=_0x5462dc[_0x35d4be(0xa7)];const _0x1fa207=_0x161d6e['matrixTransform'](_0x5d82b2['getScreenCTM']()[_0x35d4be(0xdb)]()),_0x3f3cd0=_0x35d4be(0xc1)+_0x512ede[_0x35d4be(0xc6)]+'-'+Math[_0x35d4be(0xf2)]()[_0x35d4be(0xce)](0x24)[_0x35d4be(0xbd)](0x2,0x9);let _0x1f604a=document[_0x35d4be(0xc2)](_0x35d4be(0x9d),'clipPath');_0x1f604a['setAttribute']('id',_0x3f3cd0);const _0x424f48=document[_0x35d4be(0xc2)](_0x35d4be(0x9d),_0x35d4be(0x103));_0x424f48['setAttribute']('cx',_0x1fa207['x']),_0x424f48['setAttribute']('cy',_0x1fa207['y']),_0x424f48[_0x35d4be(0x91)]('r',0x0),_0x1f604a['appendChild'](_0x424f48),_0x512ede[_0x35d4be(0xa1)]['appendChild'](_0x1f604a),_0x512ede[_0x35d4be(0xfe)][_0x35d4be(0xbe)]=_0x35d4be(0xef)+_0x3f3cd0+')',_0x512ede[_0x35d4be(0xfe)]['fill']=_0x37dfbf;const _0x319379=Math[_0x35d4be(0xb3)](_0x3b41f4[_0x35d4be(0xe8)]**0x2+_0x3b41f4[_0x35d4be(0xe5)]**0x2);animateCircle(_0x424f48,_0x1fa207['x'],_0x1fa207['y'],_0x319379,()=>{const _0x1e30c4=_0x35d4be;_0x512ede[_0x1e30c4(0xfe)][_0x1e30c4(0xbe)]='',_0x512ede[_0x1e30c4(0xe6)](_0x1e30c4(0xe9)),updateHistory();}),console[_0x35d4be(0xc3)](_0x35d4be(0x99),_0x512ede);}function animateCircle(_0x3a4b48,_0x1f5ab8,_0x352df0,_0x13ede4,_0x3f9671){let _0x38e9b5=0x0;const _0x3bf7eb=setInterval(()=>{const _0x44f72a=_0xabda;_0x38e9b5+=0xa,_0x3a4b48[_0x44f72a(0x91)]('cx',_0x1f5ab8),_0x3a4b48[_0x44f72a(0x91)]('cy',_0x352df0),_0x3a4b48[_0x44f72a(0x91)]('r',_0x38e9b5),_0x38e9b5>=_0x13ede4&&(clearInterval(_0x3bf7eb),_0x3a4b48[_0x44f72a(0xd3)]&&_0x3a4b48[_0x44f72a(0xd3)]['removeChild'](_0x3a4b48),typeof _0x3f9671==='function'&&_0x3f9671(),console[_0x44f72a(0xc3)](_0x44f72a(0x8b),_0x3a4b48));},0xa);}function startDissolveAnimation(_0x4b6ac6,_0x15720d){const _0x4d0269=_0x3b5992;_0x4b6ac6[_0x4d0269(0xfe)]['transition']=_0x4d0269(0xea),_0x4b6ac6[_0x4d0269(0xfe)][_0x4d0269(0xba)]=_0x15720d,updateHistory();}function adjustSVGSize(){const _0x40734a=_0x3b5992,_0x9e9a77=document[_0x40734a(0x104)](_0x40734a(0xae));if(!_0x9e9a77){console[_0x40734a(0xa0)](_0x40734a(0xab));return;}_0x9e9a77['setAttribute'](_0x40734a(0xa9),_0x40734a(0x92)),_0x9e9a77['setAttribute'](_0x40734a(0xc5),'xMidYMid\x20meet'),_0x9e9a77[_0x40734a(0x91)]('width',_0x40734a(0xe0)),_0x9e9a77['setAttribute']('height',_0x40734a(0xe1)),console[_0x40734a(0xc3)](_0x40734a(0xb5));}adjustSVGSize();function downloadSVG(){const _0xf937a1=_0x3b5992,_0x1ff1aa=document['getElementById'](_0xf937a1(0xae));if(_0x1ff1aa){const _0x55a8d9=_0x1ff1aa[_0xf937a1(0xa3)],_0x73d68e=new Blob([_0x55a8d9],{'type':_0xf937a1(0xf5)}),_0x5403c5=URL[_0xf937a1(0xac)](_0x73d68e),_0x50847a=document['createElement']('a');_0x50847a[_0xf937a1(0x8d)]=_0x5403c5,_0x50847a[_0xf937a1(0xa2)]=_0xf937a1(0xd6),document['body'][_0xf937a1(0x90)](_0x50847a),_0x50847a['click'](),document[_0xf937a1(0xc8)]['removeChild'](_0x50847a),URL['revokeObjectURL'](_0x5403c5);}}function _0xabda(_0x3097f3,_0x3017ac){const _0x6bc23a=_0x6bc2();return _0xabda=function(_0xabdaa0,_0x5eb439){_0xabdaa0=_0xabdaa0-0x87;let _0x1127a0=_0x6bc23a[_0xabdaa0];return _0x1127a0;},_0xabda(_0x3097f3,_0x3017ac);}function downloadSVGAsPNG(){const _0x5bb036=_0x3b5992,_0x28c6ee=document[_0x5bb036(0x104)](_0x5bb036(0xae)),_0x43a980=new XMLSerializer()[_0x5bb036(0xff)](_0x28c6ee),_0x294a84='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(_0x43a980),_0x33cc13=new Image();_0x33cc13[_0x5bb036(0xc0)]=function(){const _0x1029cf=_0x5bb036,_0x1d177d=document['createElement'](_0x1029cf(0xd4));_0x1d177d[_0x1029cf(0xe8)]=_0x33cc13['width'],_0x1d177d['height']=_0x33cc13[_0x1029cf(0xe5)];const _0x14bc1f=_0x1d177d[_0x1029cf(0xdd)]('2d');_0x14bc1f[_0x1029cf(0x9b)](_0x33cc13,0x0,0x0);const _0x42bc64=_0x1d177d[_0x1029cf(0xee)](_0x1029cf(0xda)),_0x1f1c52=document[_0x1029cf(0xf7)]('a');_0x1f1c52[_0x1029cf(0x8d)]=_0x42bc64,_0x1f1c52[_0x1029cf(0xa2)]='edited-image.png',document[_0x1029cf(0xc8)]['appendChild'](_0x1f1c52),_0x1f1c52[_0x1029cf(0xe4)](),document[_0x1029cf(0xc8)]['removeChild'](_0x1f1c52);},_0x33cc13[_0x5bb036(0x8c)]=_0x294a84;}document['addEventListener'](_0x3b5992(0xc7),function(){const _0x43f3ad=_0x3b5992,_0x326708=document[_0x43f3ad(0x104)](_0x43f3ad(0xcf));_0x326708&&_0x326708[_0x43f3ad(0xdc)](_0x43f3ad(0xe4),function(){downloadSVG();});}),document['addEventListener'](_0x3b5992(0xc7),function(){const _0x402369=_0x3b5992,_0x382aeb=document[_0x402369(0x104)]('downloadPngButton');_0x382aeb&&_0x382aeb[_0x402369(0xdc)](_0x402369(0xe4),function(){downloadSVGAsPNG();});}),document[_0x3b5992(0xdc)]('keydown',function(_0x5118cf){const _0x12f872=_0x3b5992;_0x5118cf[_0x12f872(0xb1)]&&_0x5118cf[_0x12f872(0xd7)]==='z'&&undo();}),document['addEventListener'](_0x3b5992(0xc7),function(){const _0x2a9609=_0x3b5992,_0x2683ad=document['getElementById']('svgCanvas'),_0x464902=localStorage['getItem'](_0x2a9609(0xe2));_0x464902?(_0x2683ad[_0x2a9609(0xa3)]=_0x464902,initSVGInteractions(_0x2683ad)):(initialState=_0x2683ad[_0x2a9609(0xa3)],updateHistory()),adjustSVGSize();}),window['addEventListener']('error',function(_0x2cbb03){const _0x37bf54=_0x3b5992;console[_0x37bf54(0xa0)](_0x37bf54(0xf4),_0x2cbb03[_0x37bf54(0xd8)]),console['error'](_0x37bf54(0xc4),_0x2cbb03[_0x37bf54(0x97)],_0x37bf54(0xde),_0x2cbb03[_0x37bf54(0xf8)],_0x37bf54(0xdf),_0x2cbb03[_0x37bf54(0xd0)]);});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="editor-style.css">
+    <title>Responsive SVG Editor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Media query for desktop devices */
+        @media (min-width: 768px) {
+            .download-buttons {
+                position: sticky;
+                top: 50px;
+                margin-top: 0;
+            }
+            .controls h5 {
+                margin-top: 30px;
+                margin-bottom: 5px;
+            }
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 767px) {
+            h5, p.control-description {
+                display: none;
+            }
+        }
+
+        /* Remove box shadows */
+        .e-card, .btn, .svg-canvas, .image-upload {
+            box-shadow: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="svg-canvas" data-toggle="tooltip" title="Click on a shape to fill with the selected color">
+                    <svg id="svgCanvas" width="100%" viewBox="0 0 800 600"></svg>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="controls" style="margin-top: 50px;">
+                    <!-- Color Picker -->
+                    <h5 style="margin-top: -27px !important;">Pick a Color</h5>
+                    <p class="control-description" style="font: small-caption; color: grey;">Choose a color to apply to the SVG elements.</p>
+                    <div class="color-picker mb-3">
+                        <input type="color" id="colorPicker" value="#00a7bd" class="form-control" data-toggle="tooltip" title="Select a color">
+                        <input type="text" id="hexColorInput" placeholder="#ffffff" class="form-control" style="width: 100px; margin-left: 10px;" data-toggle="tooltip" title="Enter a hex color code">
+                        <button onclick="addColor()" class="btn btn-secondary" style="background-color: #8334f7;margin-left: 10px;" data-toggle="tooltip" title="" data-original-title="Add color to palette">Add Color</button>                    </div>
+                    <!-- Color Palette -->
+                    <h5>Your Color Palette</h5>
+                    <p class="control-description" style="font: small-caption; color: grey;">Select a color from your palette to use on the SVG.</p>
+                    <div class="palette mb-3" id="palette" style="align-content: center; display: flex; justify-content: center;">
+                        <span id="palette-placeholder" style="color: #c4c4c4; display: block;">Your color palette here</span>
+                    </div>
+                    <!-- Extract Colors Feature -->
+                    <h5>Extract Colors from Image</h5>
+                    <p class="control-description" style="font: small-caption; color: grey;">Click to upload an image and extract colors to use in your SVG.</p>
+                    <div class="image-upload mb-3 e-card" id="imageUploadContainer" data-toggle="tooltip" title="Click to upload an image and extract colors" style="border-radius: 8px;">
+                        <div class="upload-controls" style="right: -33px !important;">
+                            <p class="upload-text">Extract Colors from Image</p>
+                            <input type="file" id="imageFile" accept="image/*" style="display: none;">
+                        </div>
+                        <div id="imageContainer" class="image-preview">
+                            <img id="uploadedImage" alt="Uploaded Image Preview" style="display:none; max-width:100%; max-height:100%;">
+                        </div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                    </div>
+                    <!-- Download Buttons -->
+                    <div class="download-buttons" style="display: flex; flex-direction: column;">
+                        <button id="downloadSvgButton" class="btn btn-outline-dark" style="margin-bottom: 8px;margin-top: 16px;background-color: #8334f7;color: rgb(255 255 255);" data-toggle="tooltip" title="" data-original-title="Download your SVG file">Download SVG</button>                        <button id="downloadPngButton" class="btn btn-outline-dark" data-toggle="tooltip" title="Download your image as PNG">Download PNG</button>
+                    </div>
+                    <button id="undoButton" class="btn btn-outline-dark mobile-only" data-toggle="tooltip" title="Undo the last action">
+                        <svg fill="#000000" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <g data-name="Layer 2">
+                                <g data-name="arrow-back">
+                                    <rect width="24" height="24" transform="rotate(90 12 12)" opacity="0"/>
+                                    <path d="M19 11H7.14l3.63-4.36a1 1 0 1 0-1.54-1.28l-5 6a1.19 1.19 0 0 0-.09.15c0 .05 0 .08-.07.13A1 1 0 0 0 4 12a1 1 0 0 0 .07.36c0 .05 0 .08.07.13a1.19 1.19 0 0 0 .09.15l5 6A1 1 0 0 0 10 19a1 1 0 0 0 .64-.23 1 1 0 0 0 .13-1.41L7.14 13H19a1 1 0 0 0 0-2z"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="editor-script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+</body>
+</html>
