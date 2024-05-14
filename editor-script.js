@@ -75,6 +75,14 @@ function resetSVG() {
     historyStack = [initialState]; // Reset the history stack
     currentIndex = 0; // Reset the current index
     initSVGInteractions(svgCanvas); // Reinitialize interactions
+
+    // Move one step forward if possible
+    if (historyStack.length > 1) {
+        currentIndex++;
+        document.getElementById('svgCanvas').innerHTML = historyStack[currentIndex];
+        initSVGInteractions(document.getElementById('svgCanvas')); // Reinitialize interactions
+        console.log("Moved to +1 history state after reset, current index:", currentIndex);
+    }
 }
 
 // Function to add a color to the palette
