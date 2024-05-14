@@ -1,3 +1,5 @@
+// editor-script.js
+
 let historyStack = [];
 let currentIndex = -1;
 let initialState;
@@ -45,7 +47,7 @@ document.getElementById('svgFile').addEventListener('change', function() {
             svgCanvas.innerHTML = newSvg;
             initialState = newSvg; // Store the initial state after loading the SVG
             initSVGInteractions(svgCanvas);
-           
+            updateHistory(); // Initial load should also update history
         };
         reader.readAsText(file);
     } else {
@@ -61,14 +63,20 @@ function undo() {
         initSVGInteractions(document.getElementById('svgCanvas')); // Reinitialize interactions
         console.log("Undo successful, current index:", currentIndex);
     } else if (currentIndex === 0) {
-        const svgCanvas = document.getElementById('svgCanvas');
-        svgCanvas.innerHTML = initialState;
-        historyStack = [initialState]; // Reset the history stack
-        currentIndex = 0; // Reset the current index
-        initSVGInteractions(svgCanvas); // Reinitialize interactions
+        resetSVG(); // Reset to initial state when at the first action
     } else {
         alert("No more actions to undo!");
     }
+}
+
+// Function to reset SVG to initial state
+function resetSVG() {
+    console.log("Resetting to initial state");
+    const svgCanvas = document.getElementById('svgCanvas');
+    svgCanvas.innerHTML = initialState;
+    historyStack = [initialState]; // Reset the history stack
+    currentIndex = 0; // Reset the current index
+    initSVGInteractions(svgCanvas); // Reinitialize interactions
 }
 
 // Function to add a color to the palette
@@ -338,6 +346,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     adjustSVGSize(); // Adjust SVG size to match the canvas
+});
+
+// Event listener to handle modal open and close
+document.getElementById('openModalButton').addEventListener('click', function() {
+    const svgCanvas = document.getElementById('svgCanvas');
+    const storedSvg = localStorage.getItem('currentSVG');
+    if (storedSvg) {
+        svgCanvas.innerHTML = storedSvg; // Load the SVG into the editor
+    }
+    initSVGInteractions(svgCanvas); // Reinitialize interactions
+    document.getElementById('editorModal').style.display = 'block';
+});
+
+document.getElementById('closeModalButton').addEventListener('click', function() {
+    const svgCanvas = document.getElementById('svgCanvas');
+    localStorage.setItem('currentSVG', svgCanvas.innerHTML); // Save the current state
+    document.getElementById('editorModal').style.display = 'none';
 });
 
 // Error handling for global script errors
