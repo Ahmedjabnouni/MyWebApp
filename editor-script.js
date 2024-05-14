@@ -1,4 +1,4 @@
- let historyStack = [];
+let historyStack = [];
 let currentIndex = -1;
 let initialState;
 let defaultColor = '#ff0000'; // Default color set to red
@@ -71,8 +71,15 @@ function undo() {
 function resetSVG() {
     console.log("Resetting to initial state");
     const svgCanvas = document.getElementById('svgCanvas');
-    svgCanvas.innerHTML = initialState;
-    historyStack = [initialState]; // Reset the history stack
+    if (initialState) {
+        svgCanvas.innerHTML = initialState;
+    } else {
+        const storedSvg = localStorage.getItem('currentSVG');
+        if (storedSvg) {
+            svgCanvas.innerHTML = storedSvg;
+        }
+    }
+    historyStack = [svgCanvas.innerHTML]; // Reset the history stack
     currentIndex = 0; // Reset the current index
     initSVGInteractions(svgCanvas); // Reinitialize interactions
 }
@@ -341,26 +348,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (storedSvg) {
         svgCanvas.innerHTML = storedSvg; // Load the SVG into the editor
         initSVGInteractions(svgCanvas); // Reinitialize interactions
+    } else {
+        initialState = svgCanvas.innerHTML; // Store the initial state if no SVG is stored
+        updateHistory(); // Initialize history with the initial state
     }
 
     adjustSVGSize(); // Adjust SVG size to match the canvas
-});
-
-// Event listener to handle modal open and close
-document.getElementById('openModalButton').addEventListener('click', function() {
-    const svgCanvas = document.getElementById('svgCanvas');
-    const storedSvg = localStorage.getItem('currentSVG');
-    if (storedSvg) {
-        svgCanvas.innerHTML = storedSvg; // Load the SVG into the editor
-    }
-    initSVGInteractions(svgCanvas); // Reinitialize interactions
-    document.getElementById('editorModal').style.display = 'block';
-});
-
-document.getElementById('closeModalButton').addEventListener('click', function() {
-    const svgCanvas = document.getElementById('svgCanvas');
-    localStorage.setItem('currentSVG', svgCanvas.innerHTML); // Save the current state
-    document.getElementById('editorModal').style.display = 'none';
 });
 
 // Error handling for global script errors
