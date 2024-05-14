@@ -1,104 +1,350 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="editor-style.css">
-    <title>Responsive SVG Editor</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        /* Media query for desktop devices */
-        @media (min-width: 768px) {
-            .download-buttons {
-                position: sticky;
-                top: 50px;
-                margin-top: 0;
-            }
-            .controls h5 {
-                margin-top: 30px;
-                margin-bottom: 5px;
-            }
-        }
+let historyStack = [];
+let currentIndex = -1;
+let initialState;
+let defaultColor = '#00a7bd'; // Default color set to red
+let currentColor = defaultColor; // Initialize current color with default
+let lastInvocationTime = 0;
+const debounceInterval = 100; // milliseconds
 
-        /* Media query for mobile devices */
-        @media (max-width: 767px) {
-            h5, p.control-description {
-                display: none;
-            }
-        }
+// Function to update the history stack
+function updateHistory() {
+    const svgCanvas = document.getElementById('svgCanvas');
+    if (currentIndex < historyStack.length - 1) {
+        historyStack = historyStack.slice(0, currentIndex + 1);
+    }
+    historyStack.push(svgCanvas.innerHTML);
+    currentIndex++;
+    console.log("History updated:", historyStack);
+    console.log("Current index:", currentIndex);
+}
 
-        /* Remove box shadows */
-        .e-card, .btn, .svg-canvas, .image-upload {
-            box-shadow: none !important;
-        }
-    </style>
-</head>
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="svg-canvas" data-toggle="tooltip" title="Click on a shape to fill with the selected color">
-                    <svg id="svgCanvas" width="100%" viewBox="0 0 800 600"></svg>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="controls" style="margin-top: 50px;">
-                    <!-- Color Picker -->
-                    <h5 style="margin-top: -27px !important;">Pick a Color</h5>
-                    <p class="control-description" style="font: small-caption; color: grey;">Choose a color to apply to the SVG elements.</p>
-                    <div class="color-picker mb-3">
-                        <input type="color" id="colorPicker" value="#00a7bd" class="form-control" data-toggle="tooltip" title="Select a color">
-                        <input type="text" id="hexColorInput" placeholder="#ffffff" class="form-control" style="width: 100px; margin-left: 10px;" data-toggle="tooltip" title="Enter a hex color code">
-                        <button onclick="addColor()" class="btn btn-secondary" style="background-color: #8334f7;margin-left: 10px;" data-toggle="tooltip" title="" data-original-title="Add color to palette">Add Color</button>                    </div>
-                    <!-- Color Palette -->
-                    <h5>Your Color Palette</h5>
-                    <p class="control-description" style="font: small-caption; color: grey;">Select a color from your palette to use on the SVG.</p>
-                    <div class="palette mb-3" id="palette" style="align-content: center; display: flex; justify-content: center;">
-                        <span id="palette-placeholder" style="color: #c4c4c4; display: block;">Your color palette here</span>
-                    </div>
-                    <!-- Extract Colors Feature -->
-                    <h5>Extract Colors from Image</h5>
-                    <p class="control-description" style="font: small-caption; color: grey;">Click to upload an image and extract colors to use in your SVG.</p>
-                    <div class="image-upload mb-3 e-card" id="imageUploadContainer" data-toggle="tooltip" title="Click to upload an image and extract colors" style="border-radius: 8px;">
-                        <div class="upload-controls" style="right: -33px !important;">
-                            <p class="upload-text">Extract Colors from Image</p>
-                            <input type="file" id="imageFile" accept="image/*" style="display: none;">
-                        </div>
-                        <div id="imageContainer" class="image-preview">
-                            <img id="uploadedImage" alt="Uploaded Image Preview" style="display:none; max-width:100%; max-height:100%;">
-                        </div>
-                        <div class="wave"></div>
-                        <div class="wave"></div>
-                        <div class="wave"></div>
-                    </div>
-                    <!-- Download Buttons -->
-                    <div class="download-buttons" style="display: flex; flex-direction: column;">
-                        <button id="downloadSvgButton" class="btn btn-outline-dark" style="margin-bottom: 8px;margin-top: 16px;background-color: #8334f7;color: rgb(255 255 255);" data-toggle="tooltip" title="" data-original-title="Download your SVG file">Download SVG</button>                        <button id="downloadPngButton" class="btn btn-outline-dark" data-toggle="tooltip" title="Download your image as PNG">Download PNG</button>
-                    </div>
-                    <button id="undoButton" class="btn btn-outline-dark mobile-only" data-toggle="tooltip" title="Undo the last action">
-                        <svg fill="#000000" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <g data-name="Layer 2">
-                                <g data-name="arrow-back">
-                                    <rect width="24" height="24" transform="rotate(90 12 12)" opacity="0"/>
-                                    <path d="M19 11H7.14l3.63-4.36a1 1 0 1 0-1.54-1.28l-5 6a1.19 1.19 0 0 0-.09.15c0 .05 0 .08-.07.13A1 1 0 0 0 4 12a1 1 0 0 0 .07.36c0 .05 0 .08.07.13a1.19 1.19 0 0 0 .09.15l5 6A1 1 0 0 0 10 19a1 1 0 0 0 .64-.23 1 1 0 0 0 .13-1.41L7.14 13H19a1 1 0 0 0 0-2z"/>
-                                </g>
-                            </g>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="editor-script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
+// Function to initialize SVG interactions
+function initSVGInteractions(svgElement) {
+    const fillableShapes = svgElement.querySelectorAll('path, rect, circle, ellipse, polygon, polyline');
+    fillableShapes.forEach(shape => {
+        shape.addEventListener('click', function(event) {
+            startFillAnimation(event, shape, currentColor);
         });
-    </script>
-</body>
-</html>
+        // Ignore pointer events for elements with opacity less than 1
+        let opacity = shape.style.opacity || window.getComputedStyle(shape).getPropertyValue('opacity');
+        if (opacity < 1) {
+            shape.style.pointerEvents = 'none';
+        }
+    });
+}
+
+// Function to handle file upload for image color extraction
+document.getElementById('imageFile').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const imgElement = document.getElementById('uploadedImage');
+        imgElement.src = e.target.result;
+        imgElement.onload = function() {
+            extractColors(); // Automatically extract colors after the image loads
+        }
+        imgElement.style.display = 'block'; // Show the image
+    };
+    reader.readAsDataURL(file);
+});
+
+// Function to extract colors from the uploaded image
+function extractColors() {
+    const img = document.getElementById('uploadedImage');
+    const colorThief = new ColorThief();
+    const colors = colorThief.getPalette(img, 8); // Extracts 8 dominant colors
+    const palette = document.getElementById('palette');
+    palette.innerHTML = ''; // Clear existing swatches
+    colors.forEach(color => {
+        const colorHex = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+        const newSwatch = document.createElement('div');
+        newSwatch.className = 'color-swatch';
+        newSwatch.style.backgroundColor = colorHex;
+        newSwatch.onclick = function() {
+            document.querySelectorAll('.color-swatch').forEach(swatch => {
+                swatch.style.border = 'none';
+            });
+            this.style.border = '1px solid black';
+            currentColor = colorHex;
+        };
+        palette.appendChild(newSwatch);
+    });
+}
+
+// Function to start the filling animation for an SVG element
+function startFillAnimation(event, element, color) {
+    const bounds = element.getBBox();
+    const svg = element.ownerSVGElement;
+    // Get the mouse click position relative to the SVG element
+    const point = svg.createSVGPoint();
+    point.x = event.clientX;
+    point.y = event.clientY;
+    const transformedPoint = point.matrixTransform(svg.getScreenCTM().inverse());
+    const clipPathId = 'clipPath-' + element.tagName + '-' + Math.random().toString(36).substr(2, 9);
+    let clipPath = document.createElementNS("http://www.w3.org/2000/svg", "clipPath");
+    clipPath.setAttribute('id', clipPathId);
+    const clipCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    clipCircle.setAttribute('cx', transformedPoint.x);
+    clipCircle.setAttribute('cy', transformedPoint.y);
+    clipCircle.setAttribute('r', 0);
+    clipPath.appendChild(clipCircle);
+    element.ownerSVGElement.appendChild(clipPath);
+    element.style.clipPath = `url(#${clipPathId})`;
+    element.style.fill = color;
+    const maxRadius = Math.sqrt(bounds.width ** 2 + bounds.height ** 2);
+    animateCircle(clipCircle, transformedPoint.x, transformedPoint.y, maxRadius, () => {
+        element.style.clipPath = ''; // Remove the clipPath after animation
+        element.removeAttribute('clip-path'); // Ensure clip-path is removed
+        updateHistory(); // Update history after the animation completes
+    });
+    console.log("Starting fill animation for element:", element);
+}
+
+// Function to animate the expansion of a circle used in clipping paths
+function animateCircle(circle, cx, cy, maxRadius, callback) {
+    let radius = 0;
+    const interval = setInterval(() => {
+        radius += 3;
+        circle.setAttribute('cx', cx);
+        circle.setAttribute('cy', cy);
+        circle.setAttribute('r', radius);
+        if (radius >= maxRadius) {
+            clearInterval(interval);
+            if (circle.parentNode) {
+                circle.parentNode.removeChild(circle); // Remove the circle after animation
+            }
+            if (typeof callback === 'function') {
+                callback();
+            }
+            console.log("Animation completed for:", circle);
+        }
+    }, 10);
+}
+
+// Function to start the dissolve animation for an SVG element
+function startDissolveAnimation(element, color) {
+    element.style.transition = 'fill 1s ease';
+    element.style.fill = color;
+    updateHistory(); // Update history after the animation completes
+}
+
+// Function to adjust SVG size to match the canvas
+function adjustSVGSize() {
+    const svgElement = document.getElementById('svgCanvas');
+    if (!svgElement) {
+        console.error('SVG element not found');
+        return;
+    }
+
+    // Set the viewBox to the original size (update this as per your specific SVG content)
+    svgElement.setAttribute('viewBox', '0 0 500 500');
+
+    // Ensure the preserveAspectRatio is set to default or as needed
+    svgElement.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+
+    // Adjust the dimensions of the SVG element to match the canvas size
+    svgElement.setAttribute('width', '800');
+    svgElement.setAttribute('height', '600');
+
+    console.log('SVG dimensions and properties adjusted.');
+}
+
+// Call the function to adjust the SVG dimensions
+adjustSVGSize();
+
+// Function to download the SVG
+function downloadSVG() {
+    const svgCanvas = document.getElementById('svgCanvas');
+    if (svgCanvas) {
+        const svgData = svgCanvas.innerHTML;
+        const blob = new Blob([svgData], { type: 'image/svg+xml' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'edited-svg.svg'; // Provide a default file name for the download
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url); // Clean up the URL object
+    }
+}
+
+// Function to download the SVG as PNG
+function downloadSVGAsPNG() {
+    const svgCanvas = document.getElementById('svgCanvas');
+    const svgData = new XMLSerializer().serializeToString(svgCanvas);
+
+    // Prepare SVG data and create a Blob URL
+    const data = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgData);
+    const image = new Image();
+
+    image.onload = function() {
+        // When the image is loaded, render it to the canvas
+        const canvas = document.createElement('canvas');
+        canvas.width = image.width;
+        canvas.height = image.height;
+        const context = canvas.getContext('2d');
+        context.drawImage(image, 0, 0);
+
+        // Convert canvas to PNG
+        const pngUrl = canvas.toDataURL('image/png');
+
+        // Trigger the download
+        const a = document.createElement('a');
+        a.href = pngUrl;
+        a.download = 'edited-image.png'; // Provide a default file name for the download
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    };
+
+    image.src = data;
+}
+
+// Event listener for downloading SVG
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadButton = document.getElementById('downloadSvgButton');
+    if (downloadButton) {
+        downloadButton.addEventListener('click', function() {
+            downloadSVG();
+        });
+    }
+});
+
+// Event listener for downloading SVG as PNG
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadPngButton = document.getElementById('downloadPngButton');
+    if (downloadPngButton) {
+        downloadPngButton.addEventListener('click', function() {
+            downloadSVGAsPNG();
+        });
+    }
+});
+
+// Event listener to handle keyboard shortcut for undo operation
+document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key === 'z') {
+        undo();
+    }
+});
+
+// Event listener to handle DOM content loaded
+document.addEventListener('DOMContentLoaded', function () {
+    const svgCanvas = document.getElementById('svgCanvas');
+    const storedSvg = localStorage.getItem('currentSVG');
+    if (storedSvg) {
+        svgCanvas.innerHTML = storedSvg; // Load the SVG into the editor
+        initSVGInteractions(svgCanvas); // Reinitialize interactions
+    } else {
+        initialState = svgCanvas.innerHTML; // Store the initial state if no SVG is stored
+        updateHistory(); // Initialize history with the initial state
+    }
+
+    adjustSVGSize(); // Adjust SVG size to match the canvas
+
+    // Add event listener for the undo button
+    document.getElementById('undoButton').addEventListener('click', function() {
+        undo();
+    });
+
+    // Add click event listener to the image upload container
+    document.getElementById('imageUploadContainer').addEventListener('click', function() {
+        document.getElementById('imageFile').click();
+    });
+});
+
+// Function to undo the last action
+function undo() {
+    if (currentIndex > 0) {
+        currentIndex--;
+        document.getElementById('svgCanvas').innerHTML = historyStack[currentIndex];
+        initSVGInteractions(document.getElementById('svgCanvas')); // Reinitialize interactions
+        console.log("Undo successful, current index:", currentIndex);
+    } else if (currentIndex === 0) {
+        resetSVG(); // Reset to initial state when at the first action
+    } else {
+        alert("No more actions to undo!");
+    }
+}
+
+// Function to reset SVG to initial state
+function resetSVG() {
+    console.log("Resetting to initial state");
+    const svgCanvas = document.getElementById('svgCanvas');
+    if (initialState) {
+        svgCanvas.innerHTML = initialState;
+    } else {
+        const storedSvg = localStorage.getItem('currentSVG');
+        if (storedSvg) {
+            svgCanvas.innerHTML = storedSvg;
+        }
+    }
+    historyStack = [svgCanvas.innerHTML]; // Reset the history stack
+    currentIndex = 0; // Reset the current index
+    initSVGInteractions(svgCanvas); // Reinitialize interactions
+}
+
+// Function to add a color to the palette
+function addColor(color) {
+    if (!color.startsWith('#')) {
+        color = '#' + color;
+    }
+
+    if (!color.match(/^#[0-9A-Fa-f]{6}$/)) {
+        console.error("Invalid or empty hex code:", color);
+        return; // Stop adding if the color is invalid
+    }
+
+    const now = Date.now();
+    if (now - lastInvocationTime < debounceInterval) {
+        return; // Prevents rapid successive calls
+    }
+    lastInvocationTime = now;
+
+    const palette = document.getElementById('palette');
+    const newSwatch = document.createElement('div');
+    newSwatch.className = 'color-swatch';
+    newSwatch.style.backgroundColor = color;
+    newSwatch.onclick = function() {
+        document.querySelectorAll('.color-swatch').forEach(swatch => {
+            swatch.style.border = 'none';
+        });
+        this.style.border = '1px solid black';
+        currentColor = color;
+    };
+
+    const placeholder = document.getElementById('palette-placeholder');
+    if (placeholder) {
+        placeholder.style.display = 'none';
+    }
+
+    palette.appendChild(newSwatch);
+    console.log("Color added:", color);
+    // Clear the hex input field after adding the color
+    document.getElementById('hexColorInput').value = '';
+}
+
+// Event listener for color picker change
+document.getElementById('colorPicker').addEventListener('change', function() {
+    const colorValue = this.value;
+    console.log("Color picker changed to: ", colorValue);
+    currentColor = colorValue;
+    addColor(colorValue);
+});
+
+// Event listener for the add color button
+document.querySelector('.color-picker button').addEventListener('click', function() {
+    const hexInput = document.getElementById('hexColorInput').value.trim();
+    if (hexInput.match(/^(#)?[0-9A-Fa-f]{6}$/)) {
+        addColor(hexInput);
+    } else {
+        const colorPicker = document.getElementById('colorPicker').value;
+        addColor(colorPicker);
+    }
+});
+
+// Error handling for global script errors
+window.addEventListener('error', function(event) {
+    console.error('Error occurred:', event.message);
+    console.error('At:', event.filename, 'Line:', event.lineno, 'Column:', event.colno);
+});
