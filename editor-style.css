@@ -9,32 +9,32 @@ body {
     align-items: center;
     height: 100vh;
     background: #f5f5f5;
-}
-
-.btn {
-    margin-right: 10px; /* Adds spacing between buttons */
-}
-
-.form-control-color {
+  }
+  
+  .btn {
+   color: #000;
+  }
+  
+  .form-control-color {
     padding: 0; /* Removes default padding from color picker input */
     background: none; /* Removes default background */
     border: 1px solid #ced4da; /* Adds border to make the color picker visible */
     border-radius: 0.25rem; /* Rounds the borders to match Bootstrap inputs */
-}
-
-/* Ensures buttons are spaced nicely and easy to tap on mobile */
-.btn {
+  }
+  
+  /* Ensures buttons are spaced nicely and easy to tap on mobile */
+  .btn {
     min-width: 120px;
     padding: 8px 12px;
-}
-
-/* Styling for icons within buttons */
-.fas {
+  }
+  
+  /* Styling for icons within buttons */
+  .fas {
     margin-left: 5px; /* Space icon from text */
-}
-
-
-.container {
+  }
+  
+  
+  .container {
     display: flex;
     width: 90%;
     max-width: 1200px;
@@ -42,22 +42,22 @@ body {
     background: white;
     border-radius: 8px;
     overflow: hidden;
-}
-
-
-
-#svgCanvas {
+  }
+  
+  
+  
+  #svgCanvas {
     border: 1px solid #ccc;
     width: 100%;
     height: auto;
-}
-
-.controls {
+  }
+  
+  .controls {
     flex: 1;
     padding: 20px;
-}
-
-.color-picker, .image-upload {
+  }
+  
+  .color-picker, .image-upload {
     margin-bottom: 20px;
     appearance: none;
     background-color: #FAFBFC;
@@ -83,22 +83,22 @@ body {
     white-space: nowrap;
     word-wrap: break-word;
    
-}
-
-.palette, .extracted-colors {
+  }
+  
+  .palette, .extracted-colors {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-}
-
-.color-swatch {
+  }
+  
+  .color-swatch {
     width: 30px;
     height: 30px;
     border-radius: 50%;
     cursor: pointer;
-}
-
-button {
+  }
+  
+  button {
     padding: 10px 20px;
     border: none;
     background-color: #007BFF;
@@ -106,22 +106,22 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-}
-
-button:hover {
+  }
+  
+  button:hover {
     background-color: #0056b3;
-}
-
-.upload-svg {
+  }
+  
+  .upload-svg {
     margin-top: 20px;
-}
-
-.upload-svg input,
-.upload-svg button {
+  }
+  
+  .upload-svg input,
+  .upload-svg button {
     margin-top: 5px;
-}
-
-.file-upload-button {
+  }
+  
+  .file-upload-button {
     display: inline-block;
     padding: 10px 20px;
     background-color: #007BFF;
@@ -131,65 +131,65 @@ button:hover {
     font-size: 16px;
     text-align: center;
     transition: background-color 0.3s;
-}
-
-.file-upload-button:hover {
+  }
+  
+  .file-upload-button:hover {
     background-color: #0056b3;
-}
-svg *[style*="opacity"] {
+  }
+  svg *[style*="opacity"] {
   pointer-events: none;
-}
-
-#svgCanvasContainer {
+  }
+  
+  #svgCanvasContainer {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     width: 800px; /* Or any desired width */
     height: 800px; /* Or any desired height */
     overflow: hidden; /* Optional, to manage overflow */
-}
-
-
-/* 
-
-.flex-grow-1 {
+  }
+  
+  
+  /* 
+  
+  .flex-grow-1 {
     flex-grow: 1 !important;
-} */
-
-
-.svg-container {
+  } */
+  
+  
+  .svg-container {
     flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-
-
-/* 
-
-svg#svgCanvas {
+  }
+  
+  
+  
+  /* 
+  
+  svg#svgCanvas {
     width: 500px !important;
     height: 500px !important;
-}
-
- */
-
-
-
-
-
-
- /* Base styles for desktop are likely already defined in editor-style.css, focus on overrides for mobile here */
-
-@media (max-width: 768px) {
+  }
+  
+  */
+  
+  
+  
+  
+  
+  
+  /* Base styles for desktop are likely already defined in editor-style.css, focus on overrides for mobile here */
+  
+  @media (max-width: 768px) {
     /* Stack columns vertically on smaller screens */
     .col-md-8, .col-md-4 {
         flex: 0 0 100%;
         max-width: 100%;
     }
-
-
+  
+  
     .svg-canvas {
         flex: 2;
         display: flex;
@@ -198,32 +198,35 @@ svg#svgCanvas {
         padding: 20px;
         border-right: 2px solid #eee;
     }
+  
+
 
     /* Make controls area more accessible */
     .controls {
         padding: 10px; /* Add more padding */
+        margin-top: 6px !important;
     }
-
+  
     /* Adjust button and input sizes for easier touch interaction */
     button, .form-control {
         font-size: 16px; /* Increase font size */
         padding: 12px; /* Larger padding for better touch targets */
     }
-
+  
     /* Adjust layout for control groups */
     .color-picker, .upload-svg, .image-upload {
         margin-bottom: 20px; /* Add more space between controls */
     }
-
+  
     /* Ensure all text is readable */
     body, h2 {
         font-size: 18px; /* Increase text size for better readability */
         margin-top: 40px !important;
     }
-}
-
-/* Additional media query for very small screens */
-@media (max-width: 480px) {
+  }
+  
+  /* Additional media query for very small screens */
+  @media (max-width: 480px) {
     /* Adjust specific styles for smaller phones */
     .controls, .svg-canvas {
         padding: 5px; /* Reduce padding to save space */
@@ -233,11 +236,11 @@ svg#svgCanvas {
     .color-picker, .upload-svg, .image-upload {
         margin-bottom: 15px;
     }
-}
-
-
-/* Color Picker Enhancements */
-.color-picker {
+  }
+  
+  
+  /* Color Picker Enhancements */
+  .color-picker {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -245,9 +248,9 @@ svg#svgCanvas {
     background-color: #f4f4f4;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.color-picker input[type="color"] {
+  }
+  
+  .color-picker input[type="color"] {
     -webkit-appearance: none;
     border: none;
     width: 36px;
@@ -256,18 +259,18 @@ svg#svgCanvas {
     border-radius: 50%;
     background: transparent;
     padding: 0;
-}
-
-.color-picker input[type="color"]::-webkit-color-swatch-wrapper {
+  }
+  
+  .color-picker input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0;
-}
-
-.color-picker input[type="color"]::-webkit-color-swatch {
+  }
+  
+  .color-picker input[type="color"]::-webkit-color-swatch {
     border: none;
     border-radius: 50%;
-}
-
-.color-picker button {
+  }
+  
+  .color-picker button {
     padding: 8px 16px;
     font-size: 16px;
     background-color: #007bff;
@@ -276,14 +279,14 @@ svg#svgCanvas {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.color-picker button:hover {
+  }
+  
+  .color-picker button:hover {
     background-color: #0056b3;
-}
-
-/* Palette Styles */
-.palette {
+  }
+  
+  /* Palette Styles */
+  .palette {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -292,71 +295,198 @@ svg#svgCanvas {
     border-radius: 8px;
     background-color: #f4f4f4;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.color-swatch {
+  }
+  
+  .color-swatch {
     width: 36px;
     height: 36px;
     border-radius: 50%;
     cursor: pointer;
     border: 2px solid transparent;
     transition: border-color 0.3s;
-}
-
-.color-swatch:hover {
+  }
+  
+  .color-swatch:hover {
     border-color: #000;
-}
-
-
-/* Adjustments to spacing between color picker and image upload sections */
-.color-picker {
+  }
+  
+  
+  /* Adjustments to spacing between color picker and image upload sections */
+  .color-picker {
     margin-bottom: 20px; /* Increase bottom margin to add space below the color picker */
-}
-
-.image-upload {
+  }
+  
+  .image-upload {
     margin-top: 20px; /* Increase top margin to add space above the image upload section */
-}
-
-
-.palette {
+  
+    
+  }
+  
+  
+  .palette {
     color: #ccc; /* Grey text color for the placeholder */
     text-align: center; /* Center the placeholder text */
     padding: 10px; /* Padding for aesthetic spacing */
-}
-
-.color-swatch {
+  }
+  
+  .color-swatch {
     width: 36px;
     height: 36px;
     border-radius: 50%;
     cursor: pointer;
     margin: 5px; /* Spacing around color swatches */
-}
-
-/* new */
-
-
-.image-upload {
+  }
+  
+  /* new */
+  
+  
+  .image-upload {
     display: flex;
     align-items: center;
     justify-content: start;
-    gap: 10px;
-}
-
-.upload-controls {
+ 
+    
+  }
+  
+  .upload-controls {
     flex-grow: 1;
-}
-
-.image-preview {
+    
+  }
+  
+  .image-preview {
     width: 50px; /* Fixed width for the image preview */
     height: 50px; /* Fixed height for the image preview */
     overflow: hidden; /* Ensures no overflow if image is larger than the container */
     border-radius: 50%; /* Optional: makes the preview circular */
     border: 1px solid #ccc; /* Optional: adds a subtle border around the image */
-}
-
-#uploadedImage {
+  }
+  
+  #uploadedImage {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Ensures the image covers the preview area */
     display: block; /* Ensures the image does not have any extra space around it */
+  }
+
+
+  #undoButton {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Hide the undo button on larger screens */
+#undoButton {
+  display: none;
+}
+
+/* Show the undo button only on mobile screens */
+@media (max-width: 767px) {
+  #undoButton {
+      display: block;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+}
+
+
+
+
+/* Card styling for image color extraction */
+.e-card {
+  margin: 20px auto;
+  background: transparent;
+  box-shadow: 0 2px 4px rgb(101 0 255 / 14%);
+  position: relative;
+
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer; /* Make the whole container behave like a button */
+}
+
+.wave {
+  position: absolute;
+  width: 540px;
+  height: 700px;
+  opacity: 0.6;
+  left: 0;
+  top: 0;
+  margin-left: -50%;
+  margin-top: -70%;
+  background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
+  border-radius: 40%;
+  animation: wave 55s infinite linear;
+  z-index: 1; /* Lower z-index for waves */
+}
+
+.wave:nth-child(2), .wave:nth-child(3) {
+  top: 210px;
+}
+
+.playing .wave {
+  border-radius: 40%;
+  animation: wave 3000ms infinite linear;
+}
+
+.playing .wave:nth-child(2) {
+  animation-duration: 4000ms;
+}
+
+.wave:nth-child(2) {
+  animation-duration: 50s;
+}
+
+.playing .wave:nth-child(3) {
+  animation-duration: 5000ms;
+}
+
+.wave:nth-child(3) {
+  animation-duration: 45s;
+}
+
+@keyframes wave {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* Ensure the upload button and image container are above the waves */
+.upload-controls, .image-preview {
+  position: relative;
+  z-index: 2; /* Higher z-index for upload controls and image preview */
+}
+
+.upload-text {
+  color: white;
+  text-align: center;
+  margin-top: 14px !important;
+  font-weight: 600;
+}
+
+/* Media query for mobile undo button */
+#undoButton {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  #undoButton {
+      display: block;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+}
+
+
+.p {
+
+  font: small-caption;
 }
